@@ -18,7 +18,7 @@ This repository serves as the **authoritative source of truth** for RD-59 "Nazgu
 | **Acquisition Date** | July 15, 2025 |
 | **Test Flights** | 0 (not yet flown by current operator) |
 | **Incidents** | 0 |
-| **Modifications** | 0 completed, 4 pending |
+| **Modifications** | 0 completed, 5 pending |
 
 ---
 
@@ -76,22 +76,27 @@ Complete technical documentation is maintained in the `/Documentation/` director
 
 ## 🚀 Next Steps to Airworthiness
 
-**Installation Plan**: Install RX + VTX → Get it flying → Everything else comes later
+**Installation Plan**: Install RX + Analog VTX → Get it flying → Evaluate → Upgrade if needed
 
-### Phase 1: Critical (Install First)
+### Phase 1: Critical (Install First - Analog for Maximum Flight Time)
 
 1. ✓ **Install Receiver** (MOD-001) - HappyModel ELRS EP1 Dual RX
-2. ✓ **Install Video System** (MOD-002) - Walksnail Avatar HD Moonlight
-3. **Test flights** - Establish baseline performance
+2. ✓ **Install Analog Video** (MOD-002A) - TX800 + Ratel 2 (lighter, 5-7 min flight time)
+3. **Test flights** - Establish baseline with analog system
 
-### Phase 2: Optional (After Flying)
+### Phase 1B: Optional Digital Upgrade (If Analog Insufficient)
+
+- ✓ **Upgrade to Digital** (MOD-002B) - Walksnail Avatar HD (if needed)
+- Trade-off: Better video quality, but 40-50% flight time penalty
+
+### Phase 2: Optional Enhancements (After Flying)
 
 1. *Optional*: Install RGB LEDs (MOD-003)
 2. *Optional*: Install GPS-mate (MOD-004)
 
-**Status**: All Phase 1 parts on hand. Ready to install and fly.
+**Status**: All parts on hand. Starting with analog for best flight time, digital available if needed.
 
-See [Modifications Log](./Documentation/RD-59_Modifications_Log.md) for detailed installation checklists.
+See [Modifications Log](./Documentation/RD-59_Modifications_Log.md) for detailed installation checklists and analog vs digital comparison.
 
 ---
 

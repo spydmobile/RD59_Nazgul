@@ -11,11 +11,12 @@
 
 | Total Modifications | Last Modification Date | Current Status |
 |-------------------|----------------------|----------------|
-| **0 completed, 4 pending** | Parts delivered July 24, 2025 | Awaiting installation |
+| **0 completed, 5 pending** | Parts delivered July 24, 2025 | Awaiting installation |
 
 **Installation Plan**:
-- **Phase 1 (Critical)**: MOD-001 + MOD-002 → Get aircraft flying
-- **Phase 2 (Optional)**: MOD-003 + MOD-004 → Add enhancements after baseline established
+- **Phase 1 (Critical)**: MOD-001 + MOD-002A (analog) → Get aircraft flying with minimal weight
+- **Phase 1B (Optional Upgrade)**: MOD-002B (digital) → Upgrade to Walksnail if analog insufficient
+- **Phase 2 (Optional Enhancements)**: MOD-003 + MOD-004 → Add LEDs and GPS-mate after baseline established
 
 ---
 
@@ -75,40 +76,120 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 
 ---
 
-### MOD-002: Walksnail Avatar HD Video System Installation
+### MOD-002A: Analog Video System Installation (Initial)
 
 **Status**: 🟡 **PENDING** - Parts on hand, awaiting installation
-**Type**: Replacement
+**Type**: Initial Installation
 **Priority**: CRITICAL (required for FPV operation)
-**Parts Ordered**: July 17, 2025
-**Parts Delivered**: July 24, 2025
+**Parts Status**: Already owned (liberated from 3.5" build)
 
 #### Description
-Installation of Walksnail Avatar HD Moonlight VTX Kit to replace removed DJI O4 Air Unit Pro.
+Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial video system to get aircraft flying quickly.
 
 #### Modification Details
 
 | Item | Original Config | Modified Config |
 |------|----------------|-----------------|
-| **Video System** | DJI O4 Air Unit Pro (Digital HD) | Walksnail Avatar HD Moonlight VTX Kit |
-| **Camera** | DJI O4 1/1.3" sensor, 155° FOV | Walksnail Moonlight camera |
-| **VTX** | DJI O4 (5.170-5.850 GHz, 15km range) | Walksnail Avatar VTX |
-| **Recording** | DJI O4 4GB onboard | Walksnail onboard HD recording |
+| **Video System** | DJI O4 Air Unit Pro (Digital HD) | Analog (TX800 + Ratel 2) |
+| **Camera** | DJI O4 1/1.3" sensor, 155° FOV | CADDX Ratel 2 (red) |
+| **VTX** | DJI O4 (5.170-5.850 GHz, 15km range) | SpeedyBee TX800 (5.8GHz, 25-800mW) |
+| **Recording** | DJI O4 4GB onboard | None (analog) |
 
 #### Rationale
-- DJI O4 system was removed by previous owner before sale
-- Video system is critical for FPV operation
-- **Walksnail selected over DJI**: Operator has "wasted 10k on DJI stuff" and moved away from DJI ecosystem
-- **Avatar ecosystem fit**: Considerable investment in Goggles X already made
-- **Onboard HD recording**: Important feature for operator, Avatar provides this capability
-- Digital HD quality comparable to original DJI O4
+- **Test with what's already owned**: TX800 and Ratel 2 already on hand (liberated from 3.5" build)
+- **Get flying quickly**: Analog is lighter and faster to install
+- **Better flight time**: ~5-7 min vs 3-5 min with digital (40-50% improvement)
+- **Lighter weight**: ~25g vs ~70g for digital (45g savings)
+- **Lower power draw**: ~1A vs ~2.5A for digital
+- **Evaluate needs**: Test analog performance before committing to digital
+- **TX800 redemption**: Previous underperformance on 3.5" suspected due to mounting without standoffs (shorting issues)
+- **Proper installation this time**: Will use standoffs to prevent shorting as per manual
 
 #### Expected Impact
-- Enable FPV video capability with digital HD quality
-- Onboard HD recording for post-flight review
-- Weight impact: Similar to original DJI O4 (~60-80g)
-- Performance: Minimal impact, designed for 5" racing/freestyle
-- Video quality: HD digital, compatible with Goggles X
+- Enable FPV video capability (analog quality)
+- Flight time: **5-7 minutes** freestyle (excellent)
+- Range: **2-4km** at 800mW (sufficient for most flying)
+- Weight impact: **+25g** (minimal)
+- Power draw: **~1A** at 800mW (low)
+- No onboard recording (trade-off for flight time)
+
+#### Performance Comparison vs Digital
+
+| Metric | Analog (MOD-002A) | Digital (MOD-002B) | Advantage |
+|--------|------------------|-------------------|-----------|
+| Weight | +25g | +70g | Analog: 45g lighter |
+| Power | ~1A | ~2.5A | Analog: 1.5A less |
+| Flight Time | 5-7 min | 3-5 min | Analog: +40-50% |
+| Range | 2-4km | 3-6km | Digital: slightly better |
+| Video Quality | Standard analog | HD digital | Digital: much better |
+| Recording | No | Yes (HD) | Digital wins |
+| Cost | $0 (owned) | $0 (owned) | Tie |
+
+**Decision**: Start with analog, evaluate if digital upgrade is worth the flight time penalty
+
+#### Parts On Hand
+- [x] SpeedyBee TX800 VTX (liberated from 3.5" build)
+- [x] CADDX Ratel 2 camera (red) (already owned)
+- [x] VTX antenna (included with TX800)
+
+#### Installation Checklist
+- [ ] Bench test TX800 to verify not damaged from previous shorting
+- [ ] Prepare TX800 mounting with proper standoffs (critical - avoid shorting!)
+- [ ] Install camera mount
+- [ ] Mount CADDX Ratel 2 camera
+- [ ] Install TX800 VTX with standoffs
+- [ ] Wire camera to VTX
+- [ ] Wire VTX to FC (UART for SmartAudio/Tramp if supported)
+- [ ] Wire VTX to power (VBAT/GND)
+- [ ] Route and secure VTX antenna
+- [ ] Configure VTX table in Betaflight
+- [ ] Configure OSD layout
+- [ ] Test video feed with analog goggles
+- [ ] Verify power levels (25/200/800mW)
+- [ ] Update RD-59_AsBuilt_Parts_List.md
+
+---
+
+### MOD-002B: Digital Video System Upgrade (Optional)
+
+**Status**: 🔵 **OPTIONAL** - Parts on hand, install only if MOD-002A performance insufficient
+**Type**: Upgrade
+**Priority**: LOW (upgrade from analog if needed)
+**Parts Ordered**: July 17, 2025
+**Parts Delivered**: July 24, 2025
+
+#### Description
+Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance proves insufficient.
+
+#### When to Consider This Upgrade
+- Analog range (2-4km) is insufficient for desired flying style
+- HD video quality desired for review/progression
+- Onboard HD recording needed
+- Willing to accept 40-50% flight time reduction for better video
+
+#### Modification Details
+
+| Item | MOD-002A Config (Analog) | MOD-002B Config (Digital) |
+|------|------------------------|-------------------------|
+| **Video System** | SpeedyBee TX800 (analog) | Walksnail Avatar HD Moonlight |
+| **Camera** | CADDX Ratel 2 | Walksnail Moonlight camera |
+| **VTX** | TX800 (5.8GHz, 800mW) | Walksnail Avatar VTX (digital) |
+| **Recording** | None | HD onboard recording |
+
+#### Rationale (If Upgrade Needed)
+- **Walksnail over DJI**: Operator exited DJI ecosystem ($10k investment)
+- **Goggles X compatibility**: Considerable investment already made
+- **HD recording**: Important for post-flight review
+- **Better range**: 3-6km vs 2-4km analog
+- **Digital HD quality**: Superior to analog
+
+#### Expected Impact (vs Analog)
+- Better video quality (HD digital)
+- Onboard HD recording capability
+- Slightly better range (3-6km vs 2-4km)
+- **Flight time penalty**: 3-5 min vs 5-7 min (40-50% reduction)
+- **Weight penalty**: +45g heavier than analog
+- **Power penalty**: +1.5A more draw than analog
 
 #### Parts On Hand
 - [x] Walksnail Avatar HD Moonlight VTX Kit (delivered July 24, 2025)
@@ -116,11 +197,11 @@ Installation of Walksnail Avatar HD Moonlight VTX Kit to replace removed DJI O4 
 - [x] VTX module (included in kit)
 - [x] Antennas (included in kit)
 
-#### Installation Checklist
-- [ ] Remove old DJI O4 mounts (if present)
+#### Installation Checklist (If Proceeding)
+- [ ] Remove TX800 and Ratel 2 (save as spares)
 - [ ] Install Walksnail camera mount
 - [ ] Mount Moonlight camera
-- [ ] Install VTX module
+- [ ] Install Walksnail VTX module
 - [ ] Wire camera to VTX
 - [ ] Wire VTX to FC (UART for MSP)
 - [ ] Wire VTX to power (VBAT/GND)
@@ -131,6 +212,8 @@ Installation of Walksnail Avatar HD Moonlight VTX Kit to replace removed DJI O4 
 - [ ] Test HD recording functionality
 - [ ] Verify VTX power level and channel
 - [ ] Update RD-59_AsBuilt_Parts_List.md
+
+**Decision Point**: Only proceed with this upgrade if analog testing reveals insufficient performance
 
 ---
 

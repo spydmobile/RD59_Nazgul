@@ -92,7 +92,26 @@
 
 ---
 
-### 🟡 ENHANCEMENT COMPONENTS (On Hand, Awaiting Installation)
+### 🟡 ADDITIONAL COMPONENTS (On Hand)
+
+#### Analog Video Components (MOD-002A - For Initial Install)
+
+| Component | Specification | Status | Notes |
+|-----------|---------------|--------|-------|
+| **VTX** | SpeedyBee TX800 (5.8GHz, 25-800mW) | ✓ ON HAND (liberated from 3.5" build) | Test before install (possible shorting damage) |
+| **Camera** | CADDX Ratel 2 (red) | ✓ ON HAND (already owned) | Analog FPV camera |
+
+**Purpose**: Initial FPV capability with minimal weight and maximum flight time
+
+**Critical**: Mount TX800 with proper standoffs to prevent shorting (previous installation issue)
+
+#### Digital Video Components (MOD-002B - Optional Upgrade)
+
+| Component | Specification | Status | Notes |
+|-----------|---------------|--------|-------|
+| **Digital System** | Walksnail Avatar HD Moonlight VTX Kit | ✓ ON HAND (delivered July 24, 2025) | Upgrade only if analog insufficient |
+
+**Purpose**: HD video quality, onboard recording - upgrade if analog performance unsatisfactory
 
 #### Arm LEDs (MOD-003)
 
@@ -127,17 +146,34 @@
 
 #### Video System
 
-| Component | Original Spec | Current Status | Parts Status | Required Action |
-|-----------|---------------|----------------|--------------|-----------------|
-| **Video System** | DJI O4 Air Unit Pro | ❌ REMOVED by previous owner | ✓ ON HAND (delivered July 24, 2025) | Install Walksnail Avatar HD Moonlight |
-| **Camera** | DJI O4 camera (1/1.3" sensor) | ❌ REMOVED by previous owner | ✓ ON HAND | Install Walksnail Moonlight camera |
-| **VTX** | DJI O4 (5.170-5.850 GHz) | ❌ REMOVED by previous owner | ✓ ON HAND | Install Walksnail Avatar VTX |
+| Component | Original Spec | Current Status | Initial Install | Optional Upgrade |
+|-----------|---------------|----------------|----------------|------------------|
+| **Video System** | DJI O4 Air Unit Pro (Digital HD) | ❌ REMOVED by previous owner | **Analog** (MOD-002A) | Digital (MOD-002B) |
+| **Camera** | DJI O4 1/1.3" sensor, 155° FOV | ❌ REMOVED | CADDX Ratel 2 (red) | Walksnail Moonlight |
+| **VTX** | DJI O4 (5.170-5.850 GHz, 15km) | ❌ REMOVED | SpeedyBee TX800 (5.8GHz, 25-800mW) | Walksnail Avatar VTX |
+| **Recording** | DJI O4 4GB onboard | ❌ REMOVED | None (analog) | HD onboard |
 
-**Parts on Hand (MOD-002)**:
-- Walksnail Avatar HD Moonlight VTX Kit (complete)
+**Installation Strategy: Analog First, Digital Optional**
+
+**MOD-002A: Analog System (Initial Install - Already Owned)**
+- SpeedyBee TX800 VTX (5.8GHz, 25-800mW) - liberated from 3.5" build
+- CADDX Ratel 2 camera (red) - already owned
+- VTX antenna (included with TX800)
+- **Flight Time**: 5-7 min (40-50% better than digital)
+- **Weight**: +25g (45g lighter than digital)
+- **Range**: 2-4km at 800mW
+
+**MOD-002B: Digital System (Optional Upgrade - On Hand)**
+- Walksnail Avatar HD Moonlight VTX Kit (delivered July 24, 2025)
 - Moonlight camera (included in kit)
 - VTX module (included in kit)
 - Antennas (included in kit)
+- **Flight Time**: 3-5 min (40-50% penalty vs analog)
+- **Weight**: +70g (45g heavier than analog)
+- **Range**: 3-6km (slightly better)
+- **Benefits**: HD video quality, onboard HD recording
+
+**Decision**: Install analog first (MOD-002A), test performance, upgrade to digital (MOD-002B) only if needed
 
 **Original Video System Specifications** (for reference):
 - **Sensor**: 1/1.3-inch
@@ -175,12 +211,30 @@
 
 ### Phase 1: Critical Airworthiness (Install First)
 
-**Objective**: Install RX + VTX → Get aircraft flying
+**Objective**: Install RX + Analog VTX → Get aircraft flying with maximum flight time
 
 | Item | Status | Parts On Hand Since | Notes |
 |------|--------|-------------------|-------|
-| **MOD-001: ELRS Receiver** | ✓ Parts on hand | June 4, 2025 | HappyModel EP1 Dual RX ready to install |
-| **MOD-002: Walksnail Video System** | ✓ Parts on hand | July 24, 2025 | Avatar HD Moonlight kit ready to install |
+| **MOD-001: ELRS Receiver** | ✓ Parts on hand | June 4, 2025 | HappyModel EP1 Dual RX |
+| **MOD-002A: Analog Video System** | ✓ Parts on hand | Already owned | TX800 + Ratel 2 - lighter, better flight time |
+
+**Expected Performance (Phase 1)**:
+- Flight time: 5-7 minutes
+- Range: 2-4km at 800mW
+- Weight penalty: +25g (minimal)
+
+### Phase 1B: Optional Digital Upgrade (If Analog Insufficient)
+
+**Objective**: Upgrade to digital if analog performance unsatisfactory
+
+| Item | Status | Parts On Hand Since | Notes |
+|------|--------|-------------------|-------|
+| **MOD-002B: Digital Video System** | ✓ Parts on hand | July 24, 2025 | Walksnail Avatar HD - upgrade only if needed |
+
+**Trade-offs if Upgrading to Digital**:
+- Flight time penalty: 3-5 min (vs 5-7 min analog)
+- Weight penalty: +45g heavier than analog
+- Benefits: HD video, onboard recording, slightly better range
 
 ### Phase 2: Optional Enhancements (Install After Flying)
 
@@ -191,7 +245,7 @@
 | **MOD-003: RGB Arm LEDs** | ✓ Parts on hand | June 4, 2025 | SpeedyBee 2812 LEDs x4 |
 | **MOD-004: GPS-mate Power Module** | ✓ Parts on hand | July 24, 2025 | VIFLY GPS-mate w/ Finder 2 buzzer |
 
-**Installation Plan**: Install Phase 1 (RX + VTX) → Test flights → Then add Phase 2 enhancements.
+**Installation Plan**: Phase 1 (RX + Analog) → Test flights → Evaluate if digital upgrade needed → Phase 2 enhancements
 
 **Additional Equipment On Hand** (not currently planned for installation):
 - **SpeedyBee F7 50A V3 Combo Stack** (delivered July 24, 2025)

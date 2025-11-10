@@ -18,13 +18,16 @@
 | **Days Parts On Hand** | 109 days (since July 24, 2025) |
 | **Test Flights** | 0 |
 | **Total Incidents** | 0 |
-| **Total Modifications** | 0 completed, 4 pending |
+| **Total Modifications** | 0 completed, 5 pending (MOD-001, 002A, 002B, 003, 004) |
 
-**Installation Plan**: Install RX + VTX → Get it flying → Everything else later
+**Installation Plan**: Install RX + Analog VTX → Get it flying → Evaluate → Upgrade if needed
 
-**Phase 1 - Critical** (on hand, ready to install):
+**Phase 1 - Critical** (on hand, ready to install - Analog for max flight time):
 - ✓ HappyModel ELRS EP1 Dual RX (MOD-001)
-- ✓ Walksnail Avatar HD Moonlight VTX Kit (MOD-002)
+- ✓ SpeedyBee TX800 + CADDX Ratel 2 (MOD-002A - Analog, 5-7 min flight time)
+
+**Phase 1B - Optional Upgrade** (if analog insufficient):
+- ✓ Walksnail Avatar HD Moonlight (MOD-002B - Digital, 3-5 min flight time)
 
 **Phase 2 - Optional** (install after test flights):
 - ✓ SpeedyBee RGB LEDs (MOD-003)
