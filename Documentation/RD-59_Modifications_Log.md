@@ -11,11 +11,13 @@
 
 | Total Modifications | Last Modification Date | Current Status |
 |-------------------|----------------------|----------------|
-| **0 completed, 5 pending** | Parts delivered July 24, 2025 | Awaiting installation |
+| **0 completed, 6 pending** | HDZero ordered Nov 2, 2025 | Awaiting installation |
 
 **Installation Plan**:
 - **Phase 1 (Critical)**: MOD-001 + MOD-002A (analog) → Get aircraft flying with minimal weight
-- **Phase 1B (Optional Upgrade)**: MOD-002B (digital) → Upgrade to Walksnail if analog insufficient
+- **Phase 1B (Optional Upgrade)**: Choose digital path:
+  - MOD-002B (Walksnail) → If analog insufficient and prefer Goggles X
+  - MOD-002C (HDZero) → If analog insufficient and prefer low latency
 - **Phase 2 (Optional Enhancements)**: MOD-003 + MOD-004 → Add LEDs and GPS-mate after baseline established
 
 ---
@@ -62,16 +64,33 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 - [x] Antennas (included with receiver)
 
 #### Installation Checklist
-- [ ] Verify FC UART availability for receiver
-- [ ] Determine mounting location
-- [ ] Install receiver
-- [ ] Wire to FC (TX/RX/VCC/GND)
-- [ ] Route antennas for optimal diversity
-- [ ] Configure ELRS in Betaflight
-- [ ] Bind to transmitter
-- [ ] Test control inputs and failsafe
-- [ ] Verify signal strength and range
-- [ ] Secure with heat shrink/tape
+
+**UART Selection** (from BLITZ ATF435 wiring diagram):
+- **Recommended**: UART2 (R2/T2 pads) - shown in diagram for ELRS receiver
+- **Alternative UARTs available**: UART1 (R1/T1), UART3 (R3/T3), UART4 (R4/T4), UART5 (R5/T5), UART6 (R6)
+
+**Wiring Connections**:
+- [ ] Solder RX wire to T2 pad (FC transmits to receiver)
+- [ ] Solder TX wire to R2 pad (FC receives from receiver)
+- [ ] Solder VCC wire to 5V pad (receiver power)
+- [ ] Solder GND wire to GND pad (ground)
+
+**Physical Installation**:
+- [ ] Determine mounting location (typically between FC and camera mount)
+- [ ] Mount HappyModel EP1 Dual RX receiver
+- [ ] Route dual antennas at 90° to each other for optimal diversity
+- [ ] Ensure antennas exit frame at different angles (avoid parallel)
+- [ ] Secure receiver with double-sided tape or heat shrink
+
+**Configuration & Testing**:
+- [ ] Enable UART2 in Betaflight Ports tab
+- [ ] Configure UART2 for Serial RX
+- [ ] Set receiver protocol to CRSF (ExpressLRS)
+- [ ] Bind receiver to transmitter
+- [ ] Test control inputs (roll/pitch/yaw/throttle)
+- [ ] Configure and test failsafe settings
+- [ ] Verify signal strength and range (bench test)
+- [ ] Verify RSSI display on OSD
 - [ ] Update RD-59_AsBuilt_Parts_List.md
 
 ---
@@ -133,24 +152,53 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 - [x] VTX antenna (included with TX800)
 
 #### Installation Checklist
-- [ ] Bench test TX800 to verify not damaged from previous shorting
-- [ ] Prepare TX800 mounting with proper standoffs (critical - avoid shorting!)
-- [ ] Install camera mount
-- [ ] Mount CADDX Ratel 2 camera
-- [ ] Install TX800 VTX with standoffs
-- [ ] Wire camera to VTX
-- [ ] Wire VTX to FC (UART for SmartAudio/Tramp if supported)
-- [ ] Wire VTX to power (VBAT/GND)
-- [ ] Route and secure VTX antenna
-- [ ] Configure VTX table in Betaflight
-- [ ] Configure OSD layout
+
+**Pre-Installation Testing**:
+- [ ] Bench test TX800 to verify not damaged from previous shorting issues
+- [ ] Prepare TX800 mounting with proper standoffs (CRITICAL - avoid shorting!)
+- [ ] Verify TX800 antenna connector is intact
+
+**UART Selection for VTX Control** (from BLITZ ATF435 wiring diagram):
+- **Recommended**: UART1 (R1/T1 pads) or UART3 (R3/T3 pads) for SmartAudio/Tramp
+- **Note**: UART2 already reserved for ELRS receiver (MOD-001)
+- **Alternative UARTs**: UART4 (R4/T4), UART5 (R5/T5), UART6 (R6) if needed
+
+**Camera Installation**:
+- [ ] Install camera mount on front of frame
+- [ ] Mount CADDX Ratel 2 camera with appropriate angle (20-40° typical for freestyle)
+- [ ] Wire camera to TX800 VTX (camera video out → VTX video in)
+
+**VTX Installation**:
+- [ ] Install TX800 VTX with standoffs (CRITICAL - prevents shorting to FC or frame)
+- [ ] Verify standoffs provide clearance from all metal surfaces
+- [ ] Position VTX for easy antenna access
+
+**Wiring Connections - VTX to FC**:
+- [ ] Solder VTX TX wire to R1 pad (for SmartAudio/Tramp control)
+- [ ] Solder VTX RX wire to T1 pad (if bidirectional control needed)
+- [ ] Solder VTX power (+) wire to VBAT pad (filtered battery voltage)
+- [ ] Solder VTX ground (-) wire to GND pad
+
+**Antenna & Finalization**:
+- [ ] Route and secure VTX antenna away from carbon fiber
+- [ ] Ensure antenna has clear path (not blocked by frame/props)
+- [ ] Secure all wiring with heat shrink/tape
+- [ ] Verify no wires touching propeller path
+
+**Configuration & Testing**:
+- [ ] Enable UART1 in Betaflight Ports tab
+- [ ] Configure UART1 for VTX (SmartAudio/Tramp/IRC Tramp)
+- [ ] Configure VTX table in Betaflight (5.8GHz bands/channels)
+- [ ] Configure OSD layout (add battery voltage, RSSI, flight time, etc.)
 - [ ] Test video feed with analog goggles
-- [ ] Verify power levels (25/200/800mW)
+- [ ] Verify OSD elements display correctly
+- [ ] Test VTX power level switching (25/200/800mW)
+- [ ] Verify VTX channel/band switching via OSD
 - [ ] Update RD-59_AsBuilt_Parts_List.md
 
 ---
 
-### MOD-002B: Digital Video System Upgrade (Optional)
+### MOD-002B: Walksnail Avatar HD Upgrade (Optional Path 1)
 
 **Status**: 🔵 **OPTIONAL** - Parts on hand, install only if MOD-002A performance insufficient
 **Type**: Upgrade
@@ -166,15 +214,17 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 - HD video quality desired for review/progression
 - Onboard HD recording needed
 - Willing to accept 40-50% flight time reduction for better video
+- Already own Goggles X (Walksnail compatible)
 
 #### Modification Details
 
-| Item | MOD-002A Config (Analog) | MOD-002B Config (Digital) |
+| Item | MOD-002A Config (Analog) | MOD-002B Config (Walksnail) |
 |------|------------------------|-------------------------|
 | **Video System** | SpeedyBee TX800 (analog) | Walksnail Avatar HD Moonlight |
 | **Camera** | CADDX Ratel 2 | Walksnail Moonlight camera |
 | **VTX** | TX800 (5.8GHz, 800mW) | Walksnail Avatar VTX (digital) |
 | **Recording** | None | HD onboard recording |
+| **Goggles** | Any analog goggles | Goggles X (already owned) |
 
 #### Rationale (If Upgrade Needed)
 - **Walksnail over DJI**: Operator exited DJI ecosystem ($10k investment)
@@ -214,6 +264,101 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 - [ ] Update RD-59_AsBuilt_Parts_List.md
 
 **Decision Point**: Only proceed with this upgrade if analog testing reveals insufficient performance
+
+---
+
+### MOD-002C: HDZero Freestyle V2 Upgrade (Optional Path 2)
+
+**Status**: 🟡 **PENDING** - Parts ordered, in transit (expected arrival ~Nov 9-15, 2025)
+**Type**: Upgrade
+**Priority**: LOW (alternative to Walksnail if MOD-002A performance insufficient)
+**Parts Ordered**: November 2, 2025
+**Parts Expected**: Week of November 9, 2025
+
+#### Description
+Alternative digital upgrade path using HDZero Freestyle V2 system. This is an alternative to MOD-002B (Walksnail), not in addition to it.
+
+#### When to Consider This Upgrade
+- **Primary use case**: Operator wants HDZero to become daily driver goggles for FPV fleet
+- Analog range (2-4km) is insufficient for desired flying style
+- Lower latency preferred over maximum video quality (key HDZero advantage)
+- HD video quality desired but not at expense of responsiveness
+- Onboard HD recording needed
+- Evaluating HDZero ecosystem for potential fleet-wide transition from Walksnail
+
+#### Modification Details
+
+| Item | MOD-002A Config (Analog) | MOD-002C Config (HDZero) |
+|------|------------------------|-------------------------|
+| **Video System** | SpeedyBee TX800 (analog) | HDZero Freestyle V2 |
+| **Camera** | CADDX Ratel 2 | HDZero camera (included in kit) |
+| **VTX** | TX800 (5.8GHz, 800mW) | HDZero VTX (digital) |
+| **Recording** | None | HD onboard recording |
+| **Goggles** | Any analog goggles | HDZero Goggle 2 (red, with Echo antenna kit) |
+
+#### Rationale (If Upgrade Needed)
+- **Transitioning to HDZero as primary ecosystem**: Want HDZero Goggle 2 to become daily driver goggles
+- **Current fleet context**:
+  - DJI: Mini Pro 4 complete setup (Motion, Goggles, screen remote) - cinematic/AP platform
+  - Walksnail: Goggles X + multiple drones with Avatar VTX - current FPV fleet
+    - RD-54 "Zorro" (Walksnail Avatar VTX)
+    - RD-55 "Flylens75" (Walksnail Avatar VTX)
+    - RD-59 "Nazgul" (Walksnail Avatar HD Moonlight available, not installed)
+  - HDZero: New to ecosystem, evaluating for FPV transition
+- **Lower latency advantage**: HDZero known for better responsiveness than Walksnail/DJI
+- **Strategic investment**: $829.98 to evaluate HDZero as replacement for Goggles X across 3-aircraft FPV fleet
+- **RD-59 as test platform**: Evaluate HDZero here before potentially converting RD-54 & RD-55 from Walksnail
+- **Fleet-wide decision**: If HDZero succeeds on RD-59, may retrofit RD-54 & RD-55 with HDZero VTXs
+- **HD recording**: Important for post-flight review
+- **Ecosystem diversification**: Separate cinematic (DJI) from FPV racing/freestyle (HDZero target)
+
+#### Expected Impact (vs Analog)
+- Better video quality (HD digital, lower latency than Walksnail)
+- Onboard HD recording capability
+- Range comparable to Walksnail (3-6km estimated)
+- **Flight time**: 4-6 min (better than Walksnail, lighter than original DJI O4)
+- **Weight advantage over O4**: HDZero (~45-50g) vs DJI O4 (~70g) = ~20-25g lighter
+- **Power draw**: ~1.5-2A (less than Walksnail's ~2.5A)
+- **No action cam**: Build stays light without GoPro/action cam weight
+
+#### HDZero vs Walksnail Comparison
+
+| Characteristic | HDZero Freestyle V2 | Walksnail Avatar HD Moonlight |
+|---------------|-------------------|----------------------------|
+| **Latency** | Lower (known for responsiveness) | Higher than HDZero |
+| **Video Quality** | Good HD quality | Excellent HD quality |
+| **Recording** | HD onboard | HD onboard |
+| **Range** | 3-6km (estimated) | 3-6km |
+| **Ecosystem Cost** | $829.98 (goggles + VTX) | Already own Goggles X + multiple Avatar VTXs |
+| **Fleet Strategy** | Evaluating as Goggles X replacement | Current FPV fleet standard |
+| **Flight Time** | 4-6 min (lighter than O4) | 3-5 min |
+| **Weight** | ~45-50g (lighter than O4) | ~70g |
+| **Power Draw** | ~1.5-2A | ~2.5A |
+
+#### Parts Status
+- [ ] HDZero Goggle 2 (red) with Echo Antenna Kit - $679.99 (ordered Nov 2, in transit)
+- [ ] HDZero Freestyle V2 Kit - $149.99 (ordered Nov 2, in transit)
+- Expected delivery: Week of November 9, 2025
+
+#### Installation Checklist (If Proceeding)
+- [ ] Receive and inventory HDZero parts
+- [ ] Remove TX800 and Ratel 2 (save as spares)
+- [ ] Install HDZero camera mount
+- [ ] Mount HDZero camera
+- [ ] Install HDZero VTX module
+- [ ] Wire camera to VTX
+- [ ] Wire VTX to FC (check HDZero protocol requirements)
+- [ ] Wire VTX to power (VBAT/GND)
+- [ ] Route and secure VTX antenna
+- [ ] Configure HDZero protocol in Betaflight
+- [ ] Configure OSD layout
+- [ ] Set up HDZero Goggle 2 with Echo antenna kit
+- [ ] Test video feed with HDZero Goggle 2
+- [ ] Test HD recording functionality
+- [ ] Verify VTX power level and channel
+- [ ] Update RD-59_AsBuilt_Parts_List.md
+
+**Decision Point**: Choose between MOD-002B (Walksnail) or MOD-002C (HDZero) based on analog testing and system evaluation. Only one digital system will be installed.
 
 ---
 
@@ -258,14 +403,31 @@ Installation of programmable RGB LEDs on motor arms for visibility and aesthetic
 - [x] SpeedyBee Programmable 2812 Arm LEDs x4 (acquired June 4, 2025)
 
 #### Installation Checklist
-- [ ] Verify FC LED pad availability
-- [ ] Mount LEDs on motor arms
-- [ ] Wire LEDs in series (data line)
-- [ ] Connect to FC LED pad
-- [ ] Configure LED count in Betaflight
-- [ ] Program LED patterns/colors
-- [ ] Test LED functionality
-- [ ] Secure wiring with heat shrink/tape
+
+**LED Pad Identification** (from BLITZ ATF435 wiring diagram):
+- **LED Signal Pad**: Labeled "LED" on FC (WS2812 compatible)
+- **Power Options**: 5V or VBAT depending on LED voltage requirements
+- **Ground**: GND pad
+
+**Physical Installation**:
+- [ ] Mount SpeedyBee 2812 LEDs on motor arms (one per arm)
+- [ ] Position LEDs visible from sides/rear for orientation
+- [ ] Verify LED power requirements (5V vs VBAT)
+
+**Wiring Connections**:
+- [ ] Wire LEDs in series (Data Out from LED1 → Data In to LED2, etc.)
+- [ ] Solder first LED Data In wire to LED pad on FC
+- [ ] Solder LED power wire to 5V or VBAT pad (check LED specs)
+- [ ] Solder LED ground wire to GND pad
+- [ ] Secure wiring to arms with heat shrink/tape
+
+**Configuration & Testing**:
+- [ ] Enable LED Strip in Betaflight Configuration tab
+- [ ] Configure LED count to 4 (one per arm)
+- [ ] Configure LED layout in Betaflight LED Strip tab
+- [ ] Program LED patterns/colors (orientation indicators)
+- [ ] Test LED functionality (power on test)
+- [ ] Verify LED patterns during arm/disarm
 - [ ] Update RD-59_AsBuilt_Parts_List.md
 
 ---
@@ -306,16 +468,37 @@ Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzz
 - [x] VIFLY GPS-mate External GPS Power Module w/ Built-In Finder 2 Buzzer (delivered July 24, 2025)
 
 #### Installation Checklist
-- [ ] Identify GPS power wires on existing iFlight GPS
-- [ ] Install GPS-mate module
-- [ ] Disconnect GPS from FC 5V power
-- [ ] Connect GPS to GPS-mate output
-- [ ] Connect GPS-mate input to battery power (VBAT)
-- [ ] Verify GPS power LED on GPS-mate
-- [ ] Test GPS satellite acquisition
-- [ ] Configure Finder 2 buzzer
-- [ ] Test buzzer functionality
-- [ ] Secure GPS-mate module
+
+**GPS Power Identification** (from BLITZ ATF435 wiring diagram):
+- **Current GPS Connection**: iFlight GPS connected to SDA/SCL pads (I2C)
+- **Current Power**: GPS powered from FC 5V rail
+- **GPS-mate Purpose**: Provide clean, filtered power to reduce electrical noise
+
+**Physical Installation**:
+- [ ] Identify GPS power wires on existing iFlight GPS (5V and GND)
+- [ ] Find suitable mounting location for GPS-mate module
+- [ ] Install GPS-mate module (double-sided tape or mounting pad)
+
+**Wiring Connections**:
+- [ ] Disconnect GPS 5V wire from FC 5V pad
+- [ ] Keep GPS GND connected to FC GND (common ground)
+- [ ] Connect GPS-mate input power (+) to VBAT pad on FC
+- [ ] Connect GPS-mate input ground (-) to GND pad on FC
+- [ ] Connect GPS-mate output power to GPS 5V wire (now powered by GPS-mate)
+- [ ] Leave GPS data wires (SDA/SCL) connected to FC (unchanged)
+
+**Finder 2 Buzzer Configuration**:
+- [ ] Locate Finder 2 buzzer output on GPS-mate module
+- [ ] Connect buzzer wires if external buzzer needed (optional)
+- [ ] Configure Finder 2 buzzer settings (refer to VIFLY manual)
+
+**Testing & Verification**:
+- [ ] Power on aircraft, verify GPS-mate power LED illuminates
+- [ ] Verify GPS still communicates with FC (check Betaflight GPS tab)
+- [ ] Test GPS satellite acquisition (compare before/after times)
+- [ ] Test Finder 2 buzzer functionality (lost model alarm)
+- [ ] Verify GPS accuracy improvement (check HDOP values)
+- [ ] Secure all wiring with heat shrink/tape
 - [ ] Update RD-59_AsBuilt_Parts_List.md
 
 ---

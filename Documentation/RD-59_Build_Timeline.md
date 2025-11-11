@@ -115,18 +115,40 @@
 - 7-day turnaround from order to delivery (July 17 → July 24)
 - All critical airworthiness components acquired within 9 days of drone purchase
 
-#### July 24 - November 10, 2025 - Planning & Documentation
+#### July 24 - November 1, 2025 - Waiting Period
 - **Current Status**: Aircraft stored, all parts on hand, awaiting installation
-- **Documentation Created** (November 10, 2025):
+- **Duration**: 100 days between parts arrival and next action
+
+#### November 2, 2025 - HDZero System Ordered ✓
+- **Strategic Decision**: Ordered HDZero system to evaluate as daily driver goggles for FPV fleet
+- **Parts Ordered**:
+  - HDZero Goggle 2 (red) with Echo Antenna Kit - $679.99
+  - HDZero Freestyle V2 Kit - $149.99
+  - Total Investment: $829.98
+- **Strategic Rationale**:
+  - **Fleet Context**: Operator has:
+    - DJI Mini Pro 4 (complete setup) - cinematic/AP platform
+    - Goggles X + 3 Walksnail drones (RD-54 Zorro, RD-55 Flylens75, RD-59 Nazgul) - FPV fleet
+  - **Goal**: Transition HDZero Goggle 2 to become daily driver for FPV operations
+  - **Test Platform**: Use RD-59 to evaluate HDZero before potentially retrofitting RD-54 & RD-55
+  - **Fleet-wide implications**: If HDZero succeeds on RD-59, may convert RD-54 & RD-55 from Walksnail to HDZero
+  - **Lower latency**: HDZero's responsiveness advantage over Walksnail critical for FPV
+  - **Ecosystem separation**: DJI for cinematic/AP, HDZero for FPV racing/freestyle
+  - **New to HDZero**: First experience with HDZero ecosystem
+- **Expected Delivery**: Week of November 9, 2025
+
+#### November 10, 2025 - Documentation & Planning
+- **Documentation Created**:
   - Repository established for RD-59 Nazgul
   - As-built parts list documented
   - Factory specifications captured
-  - Modifications log with MOD-001 through MOD-004 detailed
+  - Modifications log with MOD-001 through MOD-005 detailed
   - Complete installation checklists prepared
+  - HDZero option documented (MOD-002C)
 
 **Current Blockers**:
 - ⏳ No receiver installed - Parts on hand, awaiting installation (MOD-001)
-- ⏳ No video system - Parts on hand, awaiting installation (MOD-002)
+- ⏳ No video system - Analog parts on hand, digital options available (MOD-002)
 - ⏳ Installation work not yet started - All tools and parts available
 
 ---
@@ -279,7 +301,9 @@
 | **Props** | Price not recorded | July 17, 2025 | Gemfan 51433 Hurricane x4 sets |
 | **GPS-mate** | Price not recorded | July 17, 2025 | VIFLY GPS-mate w/ Finder 2 |
 | **SpeedyBee Stack** | Price not recorded | July 17, 2025 | F7 50A V3 Combo (future consideration) |
-| **Total Recorded** | $273.12+ | | Plus unrecorded parts costs |
+| **HDZero Goggle 2** | $679.99 | Nov 2, 2025 | HDZero Goggle 2 (red) with Echo Antenna Kit |
+| **HDZero VTX** | $149.99 | Nov 2, 2025 | HDZero Freestyle V2 Kit |
+| **Total Recorded** | $1,103.10+ | | Plus unrecorded parts costs from June/July |
 
 **Note**: Exact costs for parts ordered June 4 and July 17 not documented. Consider updating with actual costs if desired.
 
@@ -299,11 +323,14 @@
 - ✅ **July 15, 2025**: Aircraft acquired from Devon "Toasty" Felker
 - ✅ **July 17, 2025**: Video system, batteries, props, and accessories ordered
 - ✅ **July 24, 2025**: All ordered parts delivered - aircraft ready for installation
+- ✅ **November 2, 2025**: HDZero system ordered ($829.98 investment)
 - ✅ **November 10, 2025**: Documentation repository established
+- ⏳ **~Nov 9-15, 2025**: HDZero parts expected to arrive
 - ⏳ **TBD**: Receiver installed (MOD-001)
-- ⏳ **TBD**: Video system installed (MOD-002)
+- ⏳ **TBD**: Analog video system installed (MOD-002A)
+- ⏳ **TBD**: First test flight with analog system
+- ⏳ **TBD**: Digital upgrade decision (Walksnail MOD-002B vs HDZero MOD-002C)
 - ⏳ **TBD**: Optional enhancements installed (MOD-003, MOD-004)
-- ⏳ **TBD**: First test flight by current operator
 - ⏳ **TBD**: Operational status achieved
 - ⏳ **TBD**: Decision on SpeedyBee stack upgrade (if needed)
 
@@ -323,11 +350,16 @@
 3. **Fast parts turnaround** - 7-day delivery (July 17 → 24) enabled quick progression
 4. **Smart prop color scheme** - Lemon yellow rear, dark grey front keeps props out of FPV camera (DeadCat design)
 5. **Future-proofing** - Purchasing SpeedyBee stack as backup option provides insurance if BLITZ stack underperforms
+6. **Battery selection strategy** - 1350mAh (vs factory 1480mAh) chosen for lighter build without action cam, better power-to-weight for freestyle
 
 ### From Documentation (November 2025)
 1. **Document early and accurately** - 109 days between parts arrival and documentation - earlier would be better
 2. **Capture rationale** - Recording "why" decisions were made (DJI ecosystem exit) provides valuable context
-3. **Track all dates** - Having specific dates (June 4, July 17, July 24) creates clear timeline
+3. **Track all dates** - Having specific dates (June 4, July 17, July 24, Nov 2) creates clear timeline
+4. **Multiple options create flexibility** - Having both Walksnail and HDZero available allows data-driven decision after analog testing
+5. **Strategic fleet planning** - $830 HDZero investment is fleet-wide evaluation, not just for RD-59
+6. **Test before committing fleet** - RD-59 serves as HDZero test platform before converting other aircraft from Walksnail
+7. **Separate ecosystems by use case** - DJI for cinematic (Mini Pro 4), HDZero target for FPV racing/freestyle
 
 ### Future Lessons
 *(To be added as installations and test flights progress)*

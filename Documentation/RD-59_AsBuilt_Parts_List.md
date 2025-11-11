@@ -88,7 +88,15 @@
 - **Discharge Rate**: 100C continuous
 - **Connector**: XT60 (matches aircraft)
 - **Weight**: ~165g each (estimated)
-- **Expected Flight Time**: 5-7 minutes freestyle (estimated)
+- **Expected Flight Time**:
+  - Analog (MOD-002A): 5-7 minutes freestyle
+  - HDZero (MOD-002C): 4-6 minutes (better than Walksnail due to lighter weight)
+
+**Battery Selection Rationale (1350mAh vs Factory 1480mAh)**:
+- **No Action Camera**: Not adding GoPro/action cam weight (~50-130g saved)
+- **HDZero Lighter Than O4**: HDZero Freestyle V2 (~45-50g) vs DJI O4 (~70g) = ~20-25g saved
+- **Better Power-to-Weight**: Lighter overall build with smaller battery = more aggressive flight characteristics
+- **Flight Time Trade-off**: ~30-60 seconds less than 1480mAh, but better performance for freestyle
 
 ---
 
@@ -105,13 +113,31 @@
 
 **Critical**: Mount TX800 with proper standoffs to prevent shorting (previous installation issue)
 
-#### Digital Video Components (MOD-002B - Optional Upgrade)
+#### Digital Video Components - Path 1: Walksnail (MOD-002B - Optional Upgrade)
 
 | Component | Specification | Status | Notes |
 |-----------|---------------|--------|-------|
 | **Digital System** | Walksnail Avatar HD Moonlight VTX Kit | ✓ ON HAND (delivered July 24, 2025) | Upgrade only if analog insufficient |
+| **Goggles** | Goggles X (already owned) | ✓ OWNED | Considerable investment already made |
 
 **Purpose**: HD video quality, onboard recording - upgrade if analog performance unsatisfactory
+
+#### Digital Video Components - Path 2: HDZero (MOD-002C - Alternative Upgrade)
+
+| Component | Specification | Status | Notes |
+|-----------|---------------|--------|-------|
+| **Digital System** | HDZero Freestyle V2 Kit | 🟡 IN TRANSIT | Ordered Nov 2, 2025, expected ~Nov 9-15 |
+| **Goggles** | HDZero Goggle 2 (red) with Echo Antenna Kit | 🟡 IN TRANSIT | $679.99, ordered Nov 2, 2025 |
+
+**Purpose**: Strategic evaluation of HDZero as daily driver goggles replacement for Goggles X across FPV fleet
+
+**Fleet Context**:
+- **DJI Mini Pro 4**: Complete setup (Motion, Goggles, screen remote) - cinematic/AP platform
+- **Walksnail Fleet**: Goggles X + 3 drones with Avatar VTX - current FPV standard
+  - RD-54 "Zorro" (Walksnail Avatar VTX installed)
+  - RD-55 "Flylens75" (Walksnail Avatar VTX installed)
+  - RD-59 "Nazgul" (Walksnail Avatar HD Moonlight available, not yet installed)
+- **HDZero Strategy**: Evaluate on RD-59 before potentially converting RD-54 & RD-55 to HDZero
 
 #### Arm LEDs (MOD-003)
 
@@ -153,7 +179,7 @@
 | **VTX** | DJI O4 (5.170-5.850 GHz, 15km) | ❌ REMOVED | SpeedyBee TX800 (5.8GHz, 25-800mW) | Walksnail Avatar VTX |
 | **Recording** | DJI O4 4GB onboard | ❌ REMOVED | None (analog) | HD onboard |
 
-**Installation Strategy: Analog First, Digital Optional**
+**Installation Strategy: Analog First, Then Choose Digital Path**
 
 **MOD-002A: Analog System (Initial Install - Already Owned)**
 - SpeedyBee TX800 VTX (5.8GHz, 25-800mW) - liberated from 3.5" build
@@ -163,17 +189,28 @@
 - **Weight**: +25g (45g lighter than digital)
 - **Range**: 2-4km at 800mW
 
-**MOD-002B: Digital System (Optional Upgrade - On Hand)**
+**MOD-002B: Walksnail Digital System (Optional Path 1 - On Hand)**
 - Walksnail Avatar HD Moonlight VTX Kit (delivered July 24, 2025)
 - Moonlight camera (included in kit)
 - VTX module (included in kit)
 - Antennas (included in kit)
+- Goggles X (already owned)
 - **Flight Time**: 3-5 min (40-50% penalty vs analog)
 - **Weight**: +70g (45g heavier than analog)
 - **Range**: 3-6km (slightly better)
-- **Benefits**: HD video quality, onboard HD recording
+- **Benefits**: HD video quality, onboard HD recording, existing goggles investment
 
-**Decision**: Install analog first (MOD-002A), test performance, upgrade to digital (MOD-002B) only if needed
+**MOD-002C: HDZero Digital System (Optional Path 2 - In Transit)**
+- HDZero Freestyle V2 Kit (ordered Nov 2, expected ~Nov 9-15)
+- HDZero camera (included in kit)
+- HDZero VTX (included in kit)
+- HDZero Goggle 2 (red) with Echo Antenna Kit (ordered Nov 2, $679.99)
+- **Flight Time**: 3-5 min (similar to Walksnail)
+- **Weight**: Similar to Walksnail (~+45-70g vs analog)
+- **Range**: 3-6km (estimated, similar to Walksnail)
+- **Benefits**: Lower latency than Walksnail, HD recording, evaluating HDZero ecosystem
+
+**Decision**: Install analog first (MOD-002A), test performance, choose between Walksnail (MOD-002B) or HDZero (MOD-002C) only if needed
 
 **Original Video System Specifications** (for reference):
 - **Sensor**: 1/1.3-inch
@@ -223,17 +260,31 @@
 - Range: 2-4km at 800mW
 - Weight penalty: +25g (minimal)
 
-### Phase 1B: Optional Digital Upgrade (If Analog Insufficient)
+### Phase 1B: Optional Digital Upgrade (Choose Path If Analog Insufficient)
 
-**Objective**: Upgrade to digital if analog performance unsatisfactory
+**Objective**: Upgrade to digital if analog performance unsatisfactory - choose between Walksnail or HDZero
 
 | Item | Status | Parts On Hand Since | Notes |
 |------|--------|-------------------|-------|
-| **MOD-002B: Digital Video System** | ✓ Parts on hand | July 24, 2025 | Walksnail Avatar HD - upgrade only if needed |
+| **MOD-002B: Walksnail Avatar HD** | ✓ Parts on hand | July 24, 2025 | Path 1: Use existing Goggles X investment |
+| **MOD-002C: HDZero Freestyle V2** | 🟡 In transit | Nov 2, 2025 (ordered) | Path 2: Lower latency, new ecosystem |
 
-**Trade-offs if Upgrading to Digital**:
+**Digital Path Decision Factors**:
+
+**Choose Walksnail (MOD-002B) if**:
+- Want to use existing Goggles X investment
+- Prefer maximum video quality over latency
+- Familiar with Walksnail ecosystem
+
+**Choose HDZero (MOD-002C) if**:
+- Want lowest possible latency (key advantage over Walksnail)
+- **Strategic goal**: Transitioning to HDZero as daily driver goggles for FPV fleet
+- Evaluating HDZero ecosystem for fleet-wide adoption
+- RD-59 serves as test platform before converting other aircraft
+
+**Trade-offs (Either Digital Path)**:
 - Flight time penalty: 3-5 min (vs 5-7 min analog)
-- Weight penalty: +45g heavier than analog
+- Weight penalty: +45-70g heavier than analog
 - Benefits: HD video, onboard recording, slightly better range
 
 ### Phase 2: Optional Enhancements (Install After Flying)
@@ -271,11 +322,13 @@
 
 **No modifications completed yet.**
 
-**Pending Modifications** (parts on hand, ready to install):
-- **MOD-001**: ELRS Receiver Installation (parts acquired June 4, 2025)
-- **MOD-002**: Walksnail Avatar HD Video System Installation (parts delivered July 24, 2025)
-- **MOD-003**: RGB Arm LED Installation (parts acquired June 4, 2025)
-- **MOD-004**: VIFLY GPS-mate Power Module Installation (parts delivered July 24, 2025)
+**Pending Modifications**:
+- **MOD-001**: ELRS Receiver Installation (parts acquired June 4, 2025) ✓ On hand
+- **MOD-002A**: Analog Video System (TX800 + Ratel 2) ✓ On hand - Initial install
+- **MOD-002B**: Walksnail Avatar HD (parts delivered July 24, 2025) ✓ On hand - Optional Path 1
+- **MOD-002C**: HDZero Freestyle V2 (ordered Nov 2, 2025) 🟡 In transit - Optional Path 2
+- **MOD-003**: RGB Arm LED Installation (parts acquired June 4, 2025) ✓ On hand
+- **MOD-004**: VIFLY GPS-mate Power Module Installation (parts delivered July 24, 2025) ✓ On hand
 
 See `RD-59_Modifications_Log.md` for complete modification details and installation checklists.
 
