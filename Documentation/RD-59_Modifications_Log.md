@@ -77,10 +77,70 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 
 **Physical Installation**:
 - [ ] Determine mounting location (typically between FC and camera mount)
-- [ ] Mount HappyModel EP1 Dual RX receiver
-- [ ] Route dual antennas at 90° to each other for optimal diversity
-- [ ] Ensure antennas exit frame at different angles (avoid parallel)
-- [ ] Secure receiver with double-sided tape or heat shrink
+- [ ] Mount HappyModel EP1 Dual RX receiver with double-sided tape or heat shrink
+
+**Dual Antenna Routing Strategy**:
+
+The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. The Nazgul was originally designed for DJI O4's antenna configuration, so custom routing is required for optimal dual-antenna diversity.
+
+**Critical Antenna Diversity Principles**:
+- ✅ **90° separation**: Antennas must be perpendicular to each other (NOT parallel)
+- ✅ **Physical separation**: Mount at different locations on frame
+- ✅ **Minimize carbon fiber contact**: CF blocks 2.4GHz signal - maintain 5-10mm clearance minimum
+- ✅ **Secure firmly**: Heat shrink/zip ties prevent antenna movement into props
+- ✅ **Top mounting preferred**: Less carbon fiber interference than bottom mounting
+- ❌ **Never parallel**: Defeats dual diversity purpose
+- ❌ **Never touching carbon fiber**: Causes major signal degradation
+
+**Primary Antenna (Antenna 1) - Rear Vertical**:
+- [ ] Route through rear of frame (where DJI O4 antenna previously exited, or near GPS)
+- [ ] Position **vertically** or angled back/up at 30-45° (perpendicular to drone body)
+- [ ] Use existing antenna mount hole if available, or create exit point
+- [ ] Heat shrink antenna base to frame standoff or rear for stability
+- [ ] Ensure antenna extends beyond frame and clears carbon fiber by 5-10mm minimum
+
+**Secondary Antenna (Antenna 2) - Rear Side Top (RECOMMENDED)**:
+
+**Option 3: Rear Side Top** ✅ **BEST CONFIGURATION**
+- [ ] Mount T-antenna **horizontally** (parallel to drone body) on top of frame
+- [ ] Position beside or slightly forward of VTX location
+- [ ] Maintain **10-15mm clearance from VTX** to minimize RF interference
+- [ ] Orient T-antenna so it's **perpendicular to primary antenna** (90° diversity)
+- [ ] Ensure antenna tips **do not touch carbon fiber arms** (maintain 5-10mm gap)
+- [ ] Use heat shrink or small zip tie to secure to frame standoff or top plate
+- [ ] Verify antenna tips have clearance from props during flight
+
+**Why Option 3 (Rear Side Top) is Optimal**:
+- Top mounting = minimal carbon fiber interference (best signal propagation)
+- Rear location = away from front props (DeadCat has most prop activity forward)
+- Physical separation from primary antenna = improved diversity
+- Horizontal T gives 90° diversity from vertical primary
+- Less vulnerable to ground strikes vs bottom mounting
+- Good separation from electrical noise sources (ESC/battery)
+
+**Alternative Options Evaluated** (use only if Option 3 not feasible):
+
+*Option 1: Side Bottom (Under FC)* - ❌ **NOT RECOMMENDED**
+- Antenna tips touch CF arms = major signal loss
+- Maximum carbon fiber interference
+- Vulnerable to ground strikes
+
+*Option 2: Side Top (Above FC, between arms)* - ⚠️ **MARGINAL**
+- Better than bottom, but antenna tips still touch/near CF arms
+- Props directly above = turbulence/strike risk
+
+*Option 4: Rear Side Bottom (Under VTX)* - ❌ **NOT RECOMMENDED**
+- Carbon fiber interference from bottom mounting
+- Ground strike vulnerability
+- Near battery/ESC electrical noise
+
+**Final Antenna Installation Verification**:
+- [ ] Verify 90° separation between primary (vertical) and secondary (horizontal) antennas
+- [ ] Verify both antenna tips clear carbon fiber by 5-10mm minimum
+- [ ] Verify neither antenna can reach prop paths during flight
+- [ ] Verify antennas are secured and cannot move/vibrate loose
+- [ ] Verify secondary antenna has 10-15mm clearance from VTX
+- [ ] Take photos of final antenna routing for documentation
 
 **Configuration & Testing**:
 - [ ] Enable UART2 in Betaflight Ports tab
