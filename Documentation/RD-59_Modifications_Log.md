@@ -14,6 +14,7 @@
 | **0 completed, 6 pending** | HDZero ordered Nov 2, 2025 | Awaiting installation |
 
 **Installation Plan**:
+
 - **Phase 1 (Critical)**: MOD-001 + MOD-002A (analog) → Get aircraft flying with minimal weight
 - **Phase 1B (Optional Upgrade)**: Choose digital path:
   - MOD-002B (Walksnail) → If analog insufficient and prefer Goggles X
@@ -30,12 +31,14 @@
 
 ### MOD-001: ELRS Receiver Installation
 
-**Status**: 🟡 **PENDING** - Parts on hand, awaiting installation
+**Status**: 🟢 **COMPLETED** - Installed November 13, 2025
 **Type**: Initial Installation
 **Priority**: CRITICAL (required for airworthiness)
 **Parts Acquired**: June 4, 2025 (already owned before drone acquisition)
+**Installation Date**: November 13, 2025
 
 #### Description
+
 Installation of ExpressLRS receiver system to enable aircraft control.
 
 #### Modification Details
@@ -47,6 +50,7 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 | **Antenna** | None | Included with EP1 Dual RX |
 
 #### Rationale
+
 - Aircraft was purchased without receiver (not included in factory package)
 - Receiver is critical component for aircraft control
 - ELRS selected for low latency, long range, and reliability
@@ -54,28 +58,33 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 - Already owned this receiver prior to acquiring RD-59
 
 #### Expected Impact
+
 - Enable aircraft control capability
 - Required for test flights
 - Minimal weight impact (~1-2g)
 - Dual receiver provides improved range and reliability
 
 #### Parts On Hand
+
 - [x] HappyModel ExpressLRS TCXO EP1 Dual RX (acquired June 4, 2025)
 - [x] Antennas (included with receiver)
 
 #### Installation Checklist
 
 **UART Selection** (from BLITZ ATF435 wiring diagram):
+
 - **Recommended**: UART2 (R2/T2 pads) - shown in diagram for ELRS receiver
 - **Alternative UARTs available**: UART1 (R1/T1), UART3 (R3/T3), UART4 (R4/T4), UART5 (R5/T5), UART6 (R6)
 
 **Wiring Connections**:
+
 - [ ] Solder RX wire to T2 pad (FC transmits to receiver)
 - [ ] Solder TX wire to R2 pad (FC receives from receiver)
 - [ ] Solder VCC wire to 5V pad (receiver power)
 - [ ] Solder GND wire to GND pad (ground)
 
 **Physical Installation**:
+
 - [ ] Determine mounting location (typically between FC and camera mount)
 - [ ] Mount HappyModel EP1 Dual RX receiver with double-sided tape or heat shrink
 
@@ -84,6 +93,7 @@ Installation of ExpressLRS receiver system to enable aircraft control.
 The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. The Nazgul was originally designed for DJI O4's antenna configuration, so custom routing is required for optimal dual-antenna diversity.
 
 **Critical Antenna Diversity Principles**:
+
 - ✅ **90° separation**: Antennas must be perpendicular to each other (NOT parallel)
 - ✅ **Physical separation**: Mount at different locations on frame
 - ✅ **Minimize carbon fiber contact**: CF blocks 2.4GHz signal - maintain 5-10mm clearance minimum
@@ -93,6 +103,7 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 - ❌ **Never touching carbon fiber**: Causes major signal degradation
 
 **Primary Antenna (Antenna 1) - Rear Vertical**:
+
 - [ ] Route through rear of frame (where DJI O4 antenna previously exited, or near GPS)
 - [ ] Position **vertically** or angled back/up at 30-45° (perpendicular to drone body)
 - [ ] Use existing antenna mount hole if available, or create exit point
@@ -102,6 +113,7 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 **Secondary Antenna (Antenna 2) - Rear Side Top (RECOMMENDED)**:
 
 **Option 3: Rear Side Top** ✅ **BEST CONFIGURATION**
+
 - [ ] Mount T-antenna **horizontally** (parallel to drone body) on top of frame
 - [ ] Position beside or slightly forward of VTX location
 - [ ] Maintain **10-15mm clearance from VTX** to minimize RF interference
@@ -111,6 +123,7 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 - [ ] Verify antenna tips have clearance from props during flight
 
 **Why Option 3 (Rear Side Top) is Optimal**:
+
 - Top mounting = minimal carbon fiber interference (best signal propagation)
 - Rear location = away from front props (DeadCat has most prop activity forward)
 - Physical separation from primary antenna = improved diversity
@@ -121,20 +134,24 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 **Alternative Options Evaluated** (use only if Option 3 not feasible):
 
 *Option 1: Side Bottom (Under FC)* - ❌ **NOT RECOMMENDED**
+
 - Antenna tips touch CF arms = major signal loss
 - Maximum carbon fiber interference
 - Vulnerable to ground strikes
 
 *Option 2: Side Top (Above FC, between arms)* - ⚠️ **MARGINAL**
+
 - Better than bottom, but antenna tips still touch/near CF arms
 - Props directly above = turbulence/strike risk
 
 *Option 4: Rear Side Bottom (Under VTX)* - ❌ **NOT RECOMMENDED**
+
 - Carbon fiber interference from bottom mounting
 - Ground strike vulnerability
 - Near battery/ESC electrical noise
 
 **Final Antenna Installation Verification**:
+
 - [ ] Verify 90° separation between primary (vertical) and secondary (horizontal) antennas
 - [ ] Verify both antenna tips clear carbon fiber by 5-10mm minimum
 - [ ] Verify neither antenna can reach prop paths during flight
@@ -143,8 +160,9 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 - [ ] Take photos of final antenna routing for documentation
 
 **Configuration & Testing**:
-- [ ] Enable UART2 in Betaflight Ports tab
-- [ ] Configure UART2 for Serial RX
+
+- [ ] Enable UART3 in Betaflight Ports tab
+- [ ] Configure UART3 for Serial RX
 - [ ] Set receiver protocol to CRSF (ExpressLRS)
 - [ ] Bind receiver to transmitter
 - [ ] Test control inputs (roll/pitch/yaw/throttle)
@@ -152,6 +170,61 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 - [ ] Verify signal strength and range (bench test)
 - [ ] Verify RSSI display on OSD
 - [ ] Update RD-59_AsBuilt_Parts_List.md
+
+#### Installation Results (Completed November 13, 2025)
+
+**UART Configuration:**
+
+- ✅ **UART3 used** (R3/T3 pads) instead of recommended UART2
+- Operator chose UART3 over UART2 (both equally valid for ELRS)
+
+**Wiring Completed:**
+
+- ✅ EP1 RX (blue wire) → FC T3 pad
+- ✅ EP1 TX (blue wire with yellow ends) → FC R3 pad
+- ✅ EP1 5V (red wire) → FC 5V pad
+- ✅ EP1 GND (red wire with black ends) → FC GND pad
+- Wire gauge: 24AWG silicone (signal wires), 24AWG stranded non-silicone (power)
+- Wires twisted in pairs for EMI reduction
+- All wires pre-tinned, soldered, and heat-shrunk
+
+**Physical Installation:**
+
+- ✅ EP1 receiver wrapped in heat shrink for protection
+- ✅ Hot glued into Nazgul receiver bracket (reused DJI O4 mount)
+- Mounting location: Original DJI receiver position
+
+**Antenna Routing (Final Configuration):**
+
+*Primary Antenna (Antenna 1):*
+
+- ✅ **Horizontal orientation** (parallel to drone body)
+- ✅ Rear exit
+- ✅ **17.5mm clearance from carbon fiber** (exceeds 5-10mm spec)
+
+*Secondary Antenna (Antenna 2):*
+
+- ✅ **Vertical orientation** (up/down)
+- ✅ Side position behind VTX
+- ✅ **4mm clearance from carbon body** (marginal - just under 5mm spec)
+
+**Diversity Configuration:**
+
+- ✅ **90° separation achieved** (horizontal primary vs vertical secondary)
+- ✅ Physical separation (rear vs side)
+- ✅ Both antennas secured
+
+**Deviations from Plan:**
+
+- Changed from UART2 to UART3 (operator preference)
+- Primary antenna horizontal instead of vertical (adapted to actual frame geometry)
+- Secondary antenna vertical side mount (not rear side top Option 3, but still achieves 90° diversity)
+
+**Notes:**
+
+- No issues during soldering
+- Photos taken of installation
+- Configuration and binding deferred to next session
 
 ---
 
@@ -162,10 +235,11 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 **Priority**: CRITICAL (required for FPV operation)
 **Parts Status**: Already owned (liberated from 3.5" build)
 
-#### Description
+#### MOD-002A Description
+
 Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial video system to get aircraft flying quickly.
 
-#### Modification Details
+#### MOD-002A Modification Details
 
 | Item | Original Config | Modified Config |
 |------|----------------|-----------------|
@@ -174,7 +248,8 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 | **VTX** | DJI O4 (5.170-5.850 GHz, 15km range) | SpeedyBee TX800 (5.8GHz, 25-800mW) |
 | **Recording** | DJI O4 4GB onboard | None (analog) |
 
-#### Rationale
+#### MOD-002A Rationale
+
 - **Test with what's already owned**: TX800 and Ratel 2 already on hand (liberated from 3.5" build)
 - **Get flying quickly**: Analog is lighter and faster to install
 - **Better flight time**: ~5-7 min vs 3-5 min with digital (40-50% improvement)
@@ -184,7 +259,8 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 - **TX800 redemption**: Previous underperformance on 3.5" suspected due to mounting without standoffs (shorting issues)
 - **Proper installation this time**: Will use standoffs to prevent shorting as per manual
 
-#### Expected Impact
+#### MOD-002A Expected Impact
+
 - Enable FPV video capability (analog quality)
 - Flight time: **5-7 minutes** freestyle (excellent)
 - Range: **2-4km** at 800mW (sufficient for most flying)
@@ -192,7 +268,7 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 - Power draw: **~1A** at 800mW (low)
 - No onboard recording (trade-off for flight time)
 
-#### Performance Comparison vs Digital
+#### MOD-002A Performance Comparison vs Digital
 
 | Metric | Analog (MOD-002A) | Digital (MOD-002B) | Advantage |
 |--------|------------------|-------------------|-----------|
@@ -206,46 +282,54 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 
 **Decision**: Start with analog, evaluate if digital upgrade is worth the flight time penalty
 
-#### Parts On Hand
+#### MOD-002A Parts On Hand
+
 - [x] SpeedyBee TX800 VTX (liberated from 3.5" build)
 - [x] CADDX Ratel 2 camera (red) (already owned)
 - [x] VTX antenna (included with TX800)
 
-#### Installation Checklist
+#### MOD-002A Installation Checklist
 
 **Pre-Installation Testing**:
+
 - [ ] Bench test TX800 to verify not damaged from previous shorting issues
 - [ ] Prepare TX800 mounting with proper standoffs (CRITICAL - avoid shorting!)
 - [ ] Verify TX800 antenna connector is intact
 
 **UART Selection for VTX Control** (from BLITZ ATF435 wiring diagram):
+
 - **Recommended**: UART1 (R1/T1 pads) or UART3 (R3/T3 pads) for SmartAudio/Tramp
 - **Note**: UART2 already reserved for ELRS receiver (MOD-001)
 - **Alternative UARTs**: UART4 (R4/T4), UART5 (R5/T5), UART6 (R6) if needed
 
 **Camera Installation**:
+
 - [ ] Install camera mount on front of frame
 - [ ] Mount CADDX Ratel 2 camera with appropriate angle (20-40° typical for freestyle)
 - [ ] Wire camera to TX800 VTX (camera video out → VTX video in)
 
 **VTX Installation**:
+
 - [ ] Install TX800 VTX with standoffs (CRITICAL - prevents shorting to FC or frame)
 - [ ] Verify standoffs provide clearance from all metal surfaces
 - [ ] Position VTX for easy antenna access
 
 **Wiring Connections - VTX to FC**:
+
 - [ ] Solder VTX TX wire to R1 pad (for SmartAudio/Tramp control)
 - [ ] Solder VTX RX wire to T1 pad (if bidirectional control needed)
 - [ ] Solder VTX power (+) wire to VBAT pad (filtered battery voltage)
 - [ ] Solder VTX ground (-) wire to GND pad
 
 **Antenna & Finalization**:
+
 - [ ] Route and secure VTX antenna away from carbon fiber
 - [ ] Ensure antenna has clear path (not blocked by frame/props)
 - [ ] Secure all wiring with heat shrink/tape
 - [ ] Verify no wires touching propeller path
 
 **Configuration & Testing**:
+
 - [ ] Enable UART1 in Betaflight Ports tab
 - [ ] Configure UART1 for VTX (SmartAudio/Tramp/IRC Tramp)
 - [ ] Configure VTX table in Betaflight (5.8GHz bands/channels)
@@ -267,9 +351,11 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 **Parts Delivered**: July 24, 2025
 
 #### Description
+
 Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance proves insufficient.
 
 #### When to Consider This Upgrade
+
 - Analog range (2-4km) is insufficient for desired flying style
 - HD video quality desired for review/progression
 - Onboard HD recording needed
@@ -287,6 +373,7 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 | **Goggles** | Any analog goggles | Goggles X (already owned) |
 
 #### Rationale (If Upgrade Needed)
+
 - **Walksnail over DJI**: Operator exited DJI ecosystem ($10k investment)
 - **Goggles X compatibility**: Considerable investment already made
 - **HD recording**: Important for post-flight review
@@ -294,6 +381,7 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 - **Digital HD quality**: Superior to analog
 
 #### Expected Impact (vs Analog)
+
 - Better video quality (HD digital)
 - Onboard HD recording capability
 - Slightly better range (3-6km vs 2-4km)
@@ -302,12 +390,14 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 - **Power penalty**: +1.5A more draw than analog
 
 #### Parts On Hand
+
 - [x] Walksnail Avatar HD Moonlight VTX Kit (delivered July 24, 2025)
 - [x] Moonlight camera (included in kit)
 - [x] VTX module (included in kit)
 - [x] Antennas (included in kit)
 
 #### Installation Checklist (If Proceeding)
+
 - [ ] Remove TX800 and Ratel 2 (save as spares)
 - [ ] Install Walksnail camera mount
 - [ ] Mount Moonlight camera
@@ -336,9 +426,11 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 **Parts Expected**: Week of November 9, 2025
 
 #### Description
+
 Alternative digital upgrade path using HDZero Freestyle V2 system. This is an alternative to MOD-002B (Walksnail), not in addition to it.
 
 #### When to Consider This Upgrade
+
 - **Primary use case**: Operator wants HDZero to become daily driver goggles for FPV fleet
 - Analog range (2-4km) is insufficient for desired flying style
 - Lower latency preferred over maximum video quality (key HDZero advantage)
@@ -357,6 +449,7 @@ Alternative digital upgrade path using HDZero Freestyle V2 system. This is an al
 | **Goggles** | Any analog goggles | HDZero Goggle 2 (red, with Echo antenna kit) |
 
 #### Rationale (If Upgrade Needed)
+
 - **Transitioning to HDZero as primary ecosystem**: Want HDZero Goggle 2 to become daily driver goggles
 - **Current fleet context**:
   - DJI: Mini Pro 4 complete setup (Motion, Goggles, screen remote) - cinematic/AP platform
@@ -373,6 +466,7 @@ Alternative digital upgrade path using HDZero Freestyle V2 system. This is an al
 - **Ecosystem diversification**: Separate cinematic (DJI) from FPV racing/freestyle (HDZero target)
 
 #### Expected Impact (vs Analog)
+
 - Better video quality (HD digital, lower latency than Walksnail)
 - Onboard HD recording capability
 - Range comparable to Walksnail (3-6km estimated)
@@ -396,11 +490,13 @@ Alternative digital upgrade path using HDZero Freestyle V2 system. This is an al
 | **Power Draw** | ~1.5-2A | ~2.5A |
 
 #### Parts Status
+
 - [ ] HDZero Goggle 2 (red) with Echo Antenna Kit - $679.99 (ordered Nov 2, in transit)
 - [ ] HDZero Freestyle V2 Kit - $149.99 (ordered Nov 2, in transit)
 - Expected delivery: Week of November 9, 2025
 
 #### Installation Checklist (If Proceeding)
+
 - [ ] Receive and inventory HDZero parts
 - [ ] Remove TX800 and Ratel 2 (save as spares)
 - [ ] Install HDZero camera mount
@@ -438,6 +534,7 @@ Alternative digital upgrade path using HDZero Freestyle V2 system. This is an al
 **Parts Acquired**: June 4, 2025 (already owned before drone acquisition)
 
 #### Description
+
 Installation of programmable RGB LEDs on motor arms for visibility and aesthetics.
 
 #### Modification Details
@@ -448,33 +545,39 @@ Installation of programmable RGB LEDs on motor arms for visibility and aesthetic
 | **LED Control** | None | FC LED output (programmable) |
 
 #### Rationale
+
 - Improved visibility during flight (orientation and position)
 - Aesthetic enhancement
 - Low-light/night flying aid
 - Already owned these LEDs prior to acquiring RD-59
 
 #### Expected Impact
+
 - Enhanced visual orientation during flight
 - Night flying capability
 - Weight impact: Minimal (~2-4g total for 4 LEDs)
 - Minor power draw from battery
 
 #### Parts On Hand
+
 - [x] SpeedyBee Programmable 2812 Arm LEDs x4 (acquired June 4, 2025)
 
 #### Installation Checklist
 
 **LED Pad Identification** (from BLITZ ATF435 wiring diagram):
+
 - **LED Signal Pad**: Labeled "LED" on FC (WS2812 compatible)
 - **Power Options**: 5V or VBAT depending on LED voltage requirements
 - **Ground**: GND pad
 
 **Physical Installation**:
+
 - [ ] Mount SpeedyBee 2812 LEDs on motor arms (one per arm)
 - [ ] Position LEDs visible from sides/rear for orientation
 - [ ] Verify LED power requirements (5V vs VBAT)
 
 **Wiring Connections**:
+
 - [ ] Wire LEDs in series (Data Out from LED1 → Data In to LED2, etc.)
 - [ ] Solder first LED Data In wire to LED pad on FC
 - [ ] Solder LED power wire to 5V or VBAT pad (check LED specs)
@@ -482,6 +585,7 @@ Installation of programmable RGB LEDs on motor arms for visibility and aesthetic
 - [ ] Secure wiring to arms with heat shrink/tape
 
 **Configuration & Testing**:
+
 - [ ] Enable LED Strip in Betaflight Configuration tab
 - [ ] Configure LED count to 4 (one per arm)
 - [ ] Configure LED layout in Betaflight LED Strip tab
@@ -501,6 +605,7 @@ Installation of programmable RGB LEDs on motor arms for visibility and aesthetic
 **Parts Delivered**: July 24, 2025
 
 #### Description
+
 Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzzer to provide clean power to existing iFlight GPS.
 
 #### Modification Details
@@ -512,12 +617,14 @@ Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzz
 | **Buzzer** | None or FC buzzer | VIFLY Finder 2 buzzer (built into GPS-mate) |
 
 #### Rationale
+
 - **Clean power for GPS**: GPS-mate provides dedicated, filtered power to GPS module
 - **Improved GPS performance**: Reduced electrical noise improves satellite acquisition and accuracy
 - **Built-in buzzer**: Finder 2 buzzer aids in locating aircraft after crashes
 - **Not a replacement**: This powers the existing iFlight GPS, doesn't replace it
 
 #### Expected Impact
+
 - Faster GPS satellite lock
 - Improved GPS accuracy and stability
 - Lost model finder functionality
@@ -525,21 +632,25 @@ Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzz
 - Additional crash recovery aid
 
 #### Parts On Hand
+
 - [x] VIFLY GPS-mate External GPS Power Module w/ Built-In Finder 2 Buzzer (delivered July 24, 2025)
 
 #### Installation Checklist
 
 **GPS Power Identification** (from BLITZ ATF435 wiring diagram):
+
 - **Current GPS Connection**: iFlight GPS connected to SDA/SCL pads (I2C)
 - **Current Power**: GPS powered from FC 5V rail
 - **GPS-mate Purpose**: Provide clean, filtered power to reduce electrical noise
 
 **Physical Installation**:
+
 - [ ] Identify GPS power wires on existing iFlight GPS (5V and GND)
 - [ ] Find suitable mounting location for GPS-mate module
 - [ ] Install GPS-mate module (double-sided tape or mounting pad)
 
 **Wiring Connections**:
+
 - [ ] Disconnect GPS 5V wire from FC 5V pad
 - [ ] Keep GPS GND connected to FC GND (common ground)
 - [ ] Connect GPS-mate input power (+) to VBAT pad on FC
@@ -548,11 +659,13 @@ Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzz
 - [ ] Leave GPS data wires (SDA/SCL) connected to FC (unchanged)
 
 **Finder 2 Buzzer Configuration**:
+
 - [ ] Locate Finder 2 buzzer output on GPS-mate module
 - [ ] Connect buzzer wires if external buzzer needed (optional)
 - [ ] Configure Finder 2 buzzer settings (refer to VIFLY manual)
 
 **Testing & Verification**:
+
 - [ ] Power on aircraft, verify GPS-mate power LED illuminates
 - [ ] Verify GPS still communicates with FC (check Betaflight GPS tab)
 - [ ] Test GPS satellite acquisition (compare before/after times)
@@ -580,20 +693,24 @@ All components remain in as-purchased configuration from July 15, 2025.
 **Parts Delivered**: July 24, 2025
 
 #### Description
+
 SpeedyBee F7 50A V3 combo stack purchased and on hand, but **not currently planned for installation**. This is a potential future upgrade option once the current BLITZ ATF435/E55S stack has been tested and evaluated.
 
 #### Why On Hand
+
 - Purchased as a "good future stack for the 5-inch"
 - Current BLITZ stack performance is unknown (aircraft not yet flown)
 - Provides backup option if BLITZ stack proves inadequate
 - Can be evaluated after establishing baseline performance
 
 #### Current Status
+
 - BLITZ ATF435 FC + BLITZ E55S ESC remain installed
 - SpeedyBee stack stored for potential future use
 - **No modification planned until current stack is tested**
 
 #### Next Steps
+
 - Complete MOD-001 through MOD-004 (receiver, video, LEDs, GPS-mate)
 - Test fly RD-59 with current BLITZ stack
 - Evaluate performance and identify any issues
@@ -620,6 +737,7 @@ SpeedyBee F7 50A V3 combo stack purchased and on hand, but **not currently plann
 Modifications are numbered sequentially: MOD-001, MOD-002, MOD-003, etc.
 
 **Status Indicators**:
+
 - 🔴 **PROPOSED**: Modification being considered
 - 🟡 **PENDING**: Parts ordered, awaiting installation
 - 🔵 **IN PROGRESS**: Installation underway
