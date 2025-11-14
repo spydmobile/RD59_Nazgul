@@ -3,7 +3,7 @@
 **Drone Designator**: RD-59
 **Code Name**: Nazgul
 **Operator**: SpyD (Franco Nogarin)
-**Last Updated**: 2025-11-10
+**Last Updated**: 2025-11-14
 
 ---
 
@@ -230,10 +230,13 @@ The HappyModel EP1 Dual RX has two T-shaped antennas for diversity reception. Th
 
 ### MOD-002A: Analog Video System Installation (Initial)
 
-**Status**: 🟡 **PENDING** - Parts on hand, awaiting installation
+**Status**: 🔵 **IN PROGRESS** - Hardware installed Nov 13, 2025; bench test FAILED Nov 14, 2025
 **Type**: Initial Installation
 **Priority**: CRITICAL (required for FPV operation)
 **Parts Status**: Already owned (liberated from 3.5" build)
+**Installation Date**: November 13, 2025
+**Bench Test Date**: November 14, 2025
+**Bench Test Result**: ❌ FAILED - VTX communication working, but no video output; excessive heat
 
 #### MOD-002A Description
 
@@ -339,6 +342,199 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 - [ ] Test VTX power level switching (25/200/800mW)
 - [ ] Verify VTX channel/band switching via OSD
 - [ ] Update RD-59_AsBuilt_Parts_List.md
+
+#### Installation Results (Completed November 13, 2025)
+
+**Camera Mount - Custom TPU V3:**
+
+- ✅ Reverse-engineered Nazgul bumper from photos (GIMP → Inkscape → Bambu Slicer)
+- ✅ Integrated with Printables Ratel 2 protective sleeve
+- ✅ Built-in 15° compensation wedge for camera angle
+- ✅ **Net camera angle: ~10° upward** (cruising configuration)
+- ✅ Material: Bambu TPU (red), X1C + AMS, 0.16mm HQ, solid 4-wall construction
+- ✅ Fits perfectly in aluminum DJI housing
+- Source: https://www.printables.com/model/1339078-caddx-ratel-2-crash-protection-sleeve-tpu
+
+**Hardware Installed:**
+
+- ✅ CADDX Ratel 2 camera (red) - mounted in V3 custom bumper
+- ✅ SpeedyBee TX800 VTX (5V powered, 3.7-5V input range)
+- ✅ TrueRC CORE 85mm MMCX RHCP antenna (replaces damaged RD-53 antenna)
+
+**Wiring Harness (Camera + VTX → FC):**
+
+- ✅ Camera Red → FC 5V
+- ✅ Camera Black → FC GND
+- ✅ VTX Red → FC 5V (**NOT VBAT!** TX800 is 3.7-5V only)
+- ✅ VTX Black → FC GND
+- ✅ VTX Green (IRC Tramp RX) → FC T1 (UART1 TX)
+- ✅ Wires: 24AWG, twisted, tinned, soldered, heat-shrunk
+- ✅ Routed over top of FC (more room than between layers)
+
+**VTX Antenna:**
+
+- ✅ TrueRC CORE 85mm MMCX RHCP
+- ✅ Mounted 45° angle out rear
+- ✅ Custom TPU threaded screw mount (repurposed dual antenna hole)
+
+**Physical Installation Status:**
+
+- ✅ Soldering complete
+- ✅ Camera/VTX mounted
+- ✅ Antenna secured
+
+#### Bench Test Results (November 14, 2025)
+
+**Test Environment:**
+
+- FC: BLITZ ATF435 running Betaflight 4.5.1 (released Jan 16, 2025)
+- Power: USB only (5V)
+- Goggles: Analog FPV goggles (testing on Raceband)
+- Software: Betaflight Configurator 10.10.0
+
+**Betaflight Configuration Steps:**
+
+1. ✅ **Initial connection**: FC detected as IFLIGHT_BLITZ_F435
+2. ✅ **Accelerometer calibration**: Completed successfully
+3. ✅ **UART inspection**: Discovered old DJI O4 configuration still present
+   - UART1 (serial 0) was set to VTX (MSP + Displayport) - DJI digital config
+   - UART3 (serial 2) already configured for Serial RX (CRSF) - correct for ELRS
+4. ✅ **VTX Table configuration**: Configured via CLI
+   - 5 bands (Boscam A, B, E, Fatshark, Raceband)
+   - 8 channels per band
+   - 4 power levels: 25mW (PIT), 200mW, 400mW, 800mW (MAX)
+   - Initial settings: Raceband 1 (5658MHz), Pit mode (25mW)
+5. ❌ **UART1 protocol issue**: Initial config used wrong VTX protocol
+   - CLI command attempted generic VTX (function 2048)
+   - Should have been **VTX (IRC Tramp)** specifically
+   - Corrected via Ports tab in Betaflight Configurator
+6. ✅ **VTX communication established**: "Device ready: True" after correct protocol set
+7. ❌ **Video output FAILED**: No video signal in goggles despite VTX communication working
+
+**Problems Discovered:**
+
+1. **VTX ran at full power initially (before pit mode config)**
+   - Default VTX config had no power limits
+   - VTX likely running at 800mW on USB before configuration
+   - TX800 became **extremely hot** during initial USB connection
+   - Heat persisted even after pit mode (25mW) configuration
+
+2. **No video output**
+   - VTX communication with FC: ✅ Working (IRC Tramp, Device ready: True)
+   - VTX LED status: Red/blue flashing 1 per second (indicates no video input from camera)
+   - Goggles: No video signal on Raceband 1 (R1 - 5658MHz)
+   - Tested at 200mW on R8: Still no video signal
+   - VTX antenna connected throughout testing (no RF damage)
+
+3. **Excessive heat**
+   - TX800 running dangerously hot even supposedly in pit mode (25mW)
+   - Heat excessive even when "doing nothing"
+   - LED indicators blocked by heatsink (poor design - can't clearly see status)
+   - VTX temperature abnormal for USB-powered pit mode operation
+
+**Troubleshooting Performed:**
+
+- ✅ Verified UART1 configured for IRC Tramp protocol (not SmartAudio, not MSP)
+- ✅ Verified VTX table configured correctly (bands, channels, power levels)
+- ✅ Verified VTX communication working (Device ready: True in Betaflight)
+- ✅ Verified antenna connected (no RF damage)
+- ✅ Verified wiring connections (JST harness built Nov 13, all connections correct)
+- ✅ Attempted manual VTX mode button (behavior inconsistent, LEDs blocked by heatsink)
+- ❌ Unable to isolate root cause of no video output
+- ❌ Unable to resolve excessive heat issue
+
+**Root Cause Analysis:**
+
+**Likely causes of no video:**
+
+1. Camera not providing video signal to VTX (most likely based on red/blue LED pattern)
+2. Possible camera power issue (though wired correctly to 5V/GND)
+3. Possible video wire issue (though JST harness verified correct)
+4. VTX internal fault (cannot rule out)
+
+**Root cause of excessive heat:**
+
+1. VTX drawing excessive current even in pit mode (abnormal)
+2. Possible VTX internal fault/damage
+3. Possible short or incorrect power configuration (though wired to 5V as per spec)
+
+**Operator Assessment:**
+
+- **TX800 problematic from day 1**: Operator has not been happy with TX800 since acquisition
+- **Poor design**: LEDs blocked by heatsink, cannot clearly see status indicators
+- **Excessive heat concerning**: VTX should not run this hot on USB power in pit mode
+- **Previous performance issues**: TX800 underperformed on 3.5" build (suspected shorting without standoffs)
+- **Trust lost**: Combination of heat, no video, and day-1 frustration = low confidence in component
+
+**Test Result**: ❌ **BENCH TEST FAILED**
+
+**Status**: Aircraft remains **NOT AIRWORTHY** - no video system operational
+
+**Next Steps**: Operator evaluating VTX replacement options (see below)
+
+#### VTX Replacement Consideration
+
+**TX800 Issues Summary:**
+
+- Excessive heat (abnormal for pit mode on USB)
+- No video output (despite VTX communication working)
+- LEDs blocked by heatsink (poor design)
+- Operator unhappy since day 1
+- Previous underperformance on 3.5" build
+- Low confidence in reliability
+
+**Replacement Options Evaluated:**
+
+1. **Different analog VTX** (Rush Tank, TBS Unify, GEPRC RAD, etc.)
+   - Allows continued analog testing for flight time evaluation
+   - Known-good hardware for baseline testing
+   - Lower cost than digital
+
+2. **Wait for HDZero** (on order Nov 2, 2025 - $829.98, expected ~Nov 9-15)
+   - Skip analog entirely
+   - Move directly to digital HD system
+   - Aligns with strategic fleet transition evaluation
+   - Trade-off: Reduced flight time vs analog (4-6 min vs 5-7 min)
+
+3. **Install Walksnail** (already on hand from July 24, 2025)
+   - Digital HD with onboard recording
+   - Compatible with existing Goggles X
+   - Trade-off: Reduced flight time (3-5 min vs 5-7 min analog)
+
+4. **ArduPilot mapping platform rebuild** (evaluated and rejected)
+   - 5" frame unsuitable for mapping (severe vibration/jello issues)
+   - Would require 7" long-range frame for proper mapping work
+   - Mapping platform will be separate project (future build)
+   - RD-59 remains FPV cruiser on Nazgul frame
+
+**Decision Made (November 14, 2025):**
+
+**VTX Replacement: GEPRC RAD Mini 1W** ($74)
+
+**Rationale:**
+- Operator already happy with GEPRC RAD from other builds
+- Proven analog VTX with good performance
+- Maximizes flight time for cruiser role (5-7 min expected)
+- IRC Tramp protocol (Betaflight already configured for this)
+- Lower cost than digital options
+- Allows baseline analog testing as originally planned
+- RD-59 remains manual FPV cruiser (not mapping platform)
+
+**Strategic Context:**
+- RD-53 and RD-54 already cover manual FPV flying
+- RD-59 adds to FPV fleet as cruiser (10° camera angle, long flight time)
+- HDZero system (on order) allocated to RD-54 for performance flying
+- Professional mapping platform will be separate future build (7" frame, ArduPilot)
+
+**Next Steps:**
+- Order GEPRC RAD Mini 1W ($74)
+- Remove failed TX800
+- Install GEPRC RAD (reuse existing Ratel 2 camera and wiring harness)
+- Bench test video system
+- Bind ELRS receiver
+- Complete MOD-002A
+
+**Modification Status**: MOD-002A remains **IN PROGRESS** - awaiting GEPRC RAD delivery and installation
 
 ---
 
