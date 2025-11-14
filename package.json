@@ -1,0 +1,11 @@
+{
+  "name": "rd59_nazgul",
+  "version": "1.0.0",
+  "description": "**Drone Designator**: RD-59 **Code Name**: Nazgul **Operator**: SpyD (Franco Nogarin) **Platform**: Nazgul DC5 ECO V1.1 - 5\" Freestyle Quadcopter",
+  "main": "index.js",
+  "scripts": {
+    "timelapse": "ffmpeg -f avfoundation -framerate 30 -i '0' -vf fps=1/15 -strftime 1 Documentation/reference/timelapses/frame_%Y%m%d_%H%M%S.jpg"
+  },
+  "author": "",
+  "license": "ISC"
+}
