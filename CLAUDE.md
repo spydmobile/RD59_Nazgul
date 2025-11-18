@@ -213,6 +213,12 @@ This repository uses **two complementary systems** for tracking RD-59 work:
 - In Progress
 - Done
 
+**Milestones**:
+1. **Working Video** (Milestone #1) - FPV video system installed and operational
+2. **Working GPS** (Milestone #2) - GPS system installed, configured, and acquiring satellites
+3. **Ready To Fly** (Milestone #3) - All critical systems operational and airworthy
+4. **Maiden Flight** (Milestone #4) - First successful flight by current operator
+
 ### Issue Label System
 
 **Task Type Labels**:
@@ -244,10 +250,16 @@ This repository uses **two complementary systems** for tracking RD-59 work:
 
 1. Operator reports something (crash, parts order, modification idea)
 2. Ask clarifying questions to get complete details
-3. **Create GitHub issue** with appropriate labels and assign to operator
+3. **Create GitHub issue** with appropriate labels, milestone, and assign to operator
 4. **Update Markdown documentation** with full details
 5. **Link them**: Reference issue number in Markdown, reference docs in issue
 6. **Add to Project Board**: `gh project item-add 13 --owner spydmobile --url <issue-url>`
+
+**Assigning Milestones**:
+- Video system issues → "Working Video" milestone
+- GPS issues → "Working GPS" milestone
+- Receiver, critical parts, airworthiness → "Ready To Fly" milestone
+- First flight prep, checkout procedures → "Maiden Flight" milestone
 
 ### Integration Between Issues and Docs
 
@@ -293,6 +305,10 @@ gh issue list --assignee spydmobile --repo spydmobile/RD59_Nazgul
 # Update issue
 gh issue edit <number> --add-label "pending-install" --repo spydmobile/RD59_Nazgul
 gh issue edit <number> --add-assignee spydmobile --repo spydmobile/RD59_Nazgul
+gh issue edit <number> --milestone "Milestone Name" --repo spydmobile/RD59_Nazgul
+
+# List milestones
+gh api repos/spydmobile/RD59_Nazgul/milestones
 
 # Close issue
 gh issue close <number> --comment "Completed: [details]" --repo spydmobile/RD59_Nazgul
