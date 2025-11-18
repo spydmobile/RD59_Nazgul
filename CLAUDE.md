@@ -244,7 +244,7 @@ This repository uses **two complementary systems** for tracking RD-59 work:
 
 1. Operator reports something (crash, parts order, modification idea)
 2. Ask clarifying questions to get complete details
-3. **Create GitHub issue** with appropriate labels
+3. **Create GitHub issue** with appropriate labels and assign to operator
 4. **Update Markdown documentation** with full details
 5. **Link them**: Reference issue number in Markdown, reference docs in issue
 6. **Add to Project Board**: `gh project item-add 13 --owner spydmobile --url <issue-url>`
@@ -277,19 +277,22 @@ Your Actions:
 **Essential Commands You'll Use**:
 
 ```bash
-# Create issue
+# Create issue (assign to operator)
 gh issue create \
   --title "Title here" \
   --body "Description here" \
   --label "label1,label2" \
+  --assignee spydmobile \
   --repo spydmobile/RD59_Nazgul
 
 # List issues
 gh issue list --repo spydmobile/RD59_Nazgul
 gh issue list --label "parts-ordered" --repo spydmobile/RD59_Nazgul
+gh issue list --assignee spydmobile --repo spydmobile/RD59_Nazgul
 
 # Update issue
 gh issue edit <number> --add-label "pending-install" --repo spydmobile/RD59_Nazgul
+gh issue edit <number> --add-assignee spydmobile --repo spydmobile/RD59_Nazgul
 
 # Close issue
 gh issue close <number> --comment "Completed: [details]" --repo spydmobile/RD59_Nazgul
