@@ -1,8 +1,9 @@
-# GitHub Project Management Setup for Drone Projects
+# GitHub Project Management Setup for Drone Projects v1.01
 
 **Purpose**: This document provides a complete prompt for Claude Code to set up a comprehensive GitHub-based project management system for your drone build project.
 
 **What This Sets Up**:
+
 - GitHub CLI installation and authentication
 - Custom issue labels for drone project tracking
 - GitHub Project board for visual task management
@@ -15,6 +16,7 @@
 ## Prerequisites
 
 Before starting, ensure:
+
 - Your drone project is in a Git repository
 - The repository has a GitHub remote configured
 - You have a CLAUDE.md file (or are willing to create one)
@@ -28,7 +30,7 @@ Copy the text below and paste it into your Claude Code session:
 
 ---
 
-**START OF PROMPT**
+### START OF PROMPT
 
 I want you to set up a GitHub project management system for my drone build project. Please follow these steps:
 
@@ -43,6 +45,7 @@ I want you to set up a GitHub project management system for my drone build proje
 Create the following labels for my repository (replace `OWNER/REPO` with my actual GitHub repo):
 
 **Task Type Labels**:
+
 - `incident` (color: #d73a4a) - Crash reports and damage assessments
 - `modification` (color: #0075ca) - Planned or in-progress modifications
 - `parts-ordered` (color: #fbca04) - Parts ordered, awaiting delivery
@@ -51,10 +54,12 @@ Create the following labels for my repository (replace `OWNER/REPO` with my actu
 - `enhancement` (color: #a2eeef) - Improvements and upgrades
 
 **Priority Labels**:
+
 - `priority: critical` (color: #b60205) - Airworthiness/safety critical issues
 - `priority: high` (color: #d93f0b) - Important but not safety critical
 
 **Component Labels**:
+
 - `video-system` (color: #c5def5) - FPV video system related
 - `radio-system` (color: #bfdadc) - Radio/receiver related
 
@@ -78,11 +83,13 @@ Create the following milestones using the GitHub API (`gh api`):
 ### Step 5: Create Initial Issues
 
 Based on my drone's current status, create GitHub issues for:
+
 - Any missing components (receiver, video system, etc.)
 - Pending installations
 - Known problems or needed repairs
 
 For each issue:
+
 - Assign appropriate labels
 - Assign to the relevant milestone
 - Assign to me (the repository owner)
@@ -127,6 +134,7 @@ Create a git commit documenting the GitHub project management setup with an appr
 ### Step 8: Provide Summary
 
 Give me a summary of:
+
 - What was set up
 - Project board number and URL
 - Number of labels created
@@ -134,7 +142,7 @@ Give me a summary of:
 - Number of initial issues created
 - How to access the project in VS Code or GitHub web
 
-**END OF PROMPT**
+### END OF PROMPT
 
 ---
 
@@ -167,6 +175,7 @@ You can customize the setup by:
 ## Using the System
 
 Once set up, Claude Code will automatically:
+
 - Create GitHub issues when you report crashes, parts orders, or modifications
 - Assign issues to you with appropriate labels and milestones
 - Update Markdown documentation alongside GitHub issues
@@ -174,8 +183,9 @@ Once set up, Claude Code will automatically:
 - Track progress on the project board
 
 You can access your issues and project board:
+
 - **In VS Code**: GitHub Pull Requests and Issues extension (built-in)
-- **On the Web**: https://github.com/OWNER/REPO/issues and https://github.com/OWNER/REPO/projects
+- **On the Web**: <https://github.com/OWNER/REPO/issues> and <https://github.com/OWNER/REPO/projects>
 - **Via CLI**: `gh issue list --repo OWNER/REPO`
 
 ---
@@ -183,6 +193,7 @@ You can access your issues and project board:
 ## Maintenance
 
 The system is self-maintaining through Claude Code, but you can:
+
 - Review and close completed issues
 - Move issues between project board columns
 - Update milestone progress
@@ -193,7 +204,7 @@ The system is self-maintaining through Claude Code, but you can:
 
 ## Support
 
-This project management system was developed for the RD-59 "Nazgul" drone project. The complete implementation and documentation can be found at: https://github.com/spydmobile/RD59_Nazgul
+This project management system was developed for the RD-59 "Nazgul" drone project. The complete implementation and documentation can be found at: <https://github.com/spydmobile/RD59_Nazgul>
 
 For questions or improvements, refer to the CLAUDE.md file in your repository after setup.
 
