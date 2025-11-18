@@ -185,6 +185,173 @@ Each incident follows standardized format with damage tables, repair decisions, 
 
 ---
 
+## GitHub Issues & Project Management
+
+### Dual-Track Documentation System
+
+This repository uses **two complementary systems** for tracking RD-59 work:
+
+1. **Markdown Documentation** (in `/Documentation/`) - Comprehensive archive and historical record
+2. **GitHub Issues + Project Board** - Active task tracking and cloud-based project management
+
+**Why Both?**
+
+- Markdown docs provide detailed technical archive and reference
+- GitHub Issues provide actionable, cloud-accessible task tracking
+- Issues accessible from any machine via VS Code or GitHub web
+- Project board provides visual status management
+
+### GitHub Project Structure
+
+**Project Board**: "RD-59 Nazgul Project Tracker" (Project #13)
+- Owner: `spydmobile`
+- Repository: `spydmobile/RD59_Nazgul`
+- Access: Available in VS Code (GitHub Pull Requests and Issues extension) or web
+
+**Project Columns** (default):
+- Todo
+- In Progress
+- Done
+
+### Issue Label System
+
+**Task Type Labels**:
+- `incident` - Crash reports and damage assessments
+- `modification` - Planned or in-progress modifications
+- `parts-ordered` - Parts ordered, awaiting delivery
+- `pending-install` - Parts received, awaiting installation
+- `maintenance` - Routine maintenance tasks
+- `enhancement` - Improvements and upgrades
+
+**Priority Labels**:
+- `priority: critical` - Airworthiness/safety critical issues
+- `priority: high` - Important but not safety critical
+
+**Component Labels**:
+- `video-system` - FPV video system related
+- `radio-system` - Radio/receiver related
+
+### When to Create GitHub Issues
+
+**ALWAYS create an issue when**:
+- Operator reports a crash (link to incident in Markdown docs)
+- Parts are ordered (track delivery status)
+- Modification is planned (track implementation progress)
+- Bug/problem is discovered (track resolution)
+- Maintenance task identified (track completion)
+
+**Issue Creation Workflow**:
+
+1. Operator reports something (crash, parts order, modification idea)
+2. Ask clarifying questions to get complete details
+3. **Create GitHub issue** with appropriate labels
+4. **Update Markdown documentation** with full details
+5. **Link them**: Reference issue number in Markdown, reference docs in issue
+6. **Add to Project Board**: `gh project item-add 13 --owner spydmobile --url <issue-url>`
+
+### Integration Between Issues and Docs
+
+**Cross-Referencing**:
+
+- In Markdown docs: Reference issues as `(see GitHub Issue #123)`
+- In GitHub issues: Reference docs as `Documentation/RD-59_Incident_Log.md`
+- Maintain bidirectional links for easy navigation
+
+**Example Workflow**:
+
+```
+Operator: "RD-59 crashed today at the field"
+
+Your Actions:
+1. Create GitHub Issue: "Incident: Crash at [location] on [date]"
+   - Labels: incident, priority: critical
+   - Body: Brief summary, link to incident log
+2. Update RD-59_Incident_Log.md with full details
+3. Update RD-59_AsBuilt_Parts_List.md if parts damaged
+4. Reference issue number in all Markdown docs
+5. Add issue to Project Board
+```
+
+### Common gh CLI Commands
+
+**Essential Commands You'll Use**:
+
+```bash
+# Create issue
+gh issue create \
+  --title "Title here" \
+  --body "Description here" \
+  --label "label1,label2" \
+  --repo spydmobile/RD59_Nazgul
+
+# List issues
+gh issue list --repo spydmobile/RD59_Nazgul
+gh issue list --label "parts-ordered" --repo spydmobile/RD59_Nazgul
+
+# Update issue
+gh issue edit <number> --add-label "pending-install" --repo spydmobile/RD59_Nazgul
+
+# Close issue
+gh issue close <number> --comment "Completed: [details]" --repo spydmobile/RD59_Nazgul
+
+# Add issue to project board
+gh project item-add 13 --owner spydmobile --url https://github.com/spydmobile/RD59_Nazgul/issues/<number>
+
+# View issue details
+gh issue view <number> --repo spydmobile/RD59_Nazgul
+```
+
+**Note**: GitHub CLI (`gh`) is installed and authenticated. Project board number is `13`.
+
+### Issue Lifecycle
+
+**Typical Issue Flow**:
+
+1. **Created** - Issue opened, added to project board (Todo column)
+2. **In Progress** - Work started (move to In Progress column)
+3. **Blocked** - Waiting on parts/decisions (add comment explaining blocker)
+4. **Completed** - Work done, issue closed (move to Done column)
+
+**When to Close Issues**:
+
+- Parts installed and tested
+- Modification completed and documented
+- Incident fully resolved and documented
+- Maintenance task completed
+
+**Don't Close Issues**:
+
+- Parts ordered but not received (keep open with `parts-ordered` label)
+- Parts received but not installed (update to `pending-install` label)
+- Work started but not completed
+
+### Best Practices
+
+**Issue Titles**:
+- Be specific: "Install HappyModel ELRS EP1 Dual RX" not "Add receiver"
+- Include part numbers when relevant
+- Start with action verb: "Install", "Replace", "Fix", "Upgrade"
+
+**Issue Bodies**:
+- Provide context and background
+- Link to relevant Markdown documentation
+- Include part numbers, vendors, order dates
+- Note any blockers or dependencies
+
+**Labels**:
+- Always use at least one task type label
+- Add priority label for critical/high priority items
+- Add component label if relevant
+- Multiple labels are fine and encouraged
+
+**Comments**:
+- Update issues when status changes
+- Note when parts arrive
+- Document installation progress
+- Link to commits when code/docs updated
+
+---
+
 ## Current Configuration Summary
 
 ### Core Build (As-Purchased July 15, 2025)
@@ -396,6 +563,7 @@ The operator (SpyD/Franco) will inform you of:
    - What's the latest modification number?
    - What's pending installation?
    - What are current known issues?
+   - **Check open GitHub issues**: `gh issue list --repo spydmobile/RD59_Nazgul`
 
 4. **When Operator Arrives**:
    - Ask what they need documented
