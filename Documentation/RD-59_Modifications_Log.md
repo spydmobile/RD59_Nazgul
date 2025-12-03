@@ -3,7 +3,7 @@
 **Drone Designator**: RD-59
 **Code Name**: Nazgul
 **Operator**: SpyD (Franco Nogarin)
-**Last Updated**: 2025-11-14
+**Last Updated**: 2025-12-02
 
 ---
 
@@ -11,15 +11,15 @@
 
 | Total Modifications | Last Modification Date | Current Status |
 |-------------------|----------------------|----------------|
-| **0 completed, 6 pending** | HDZero ordered Nov 2, 2025 | Awaiting installation |
+| **1 completed, 1 in progress, 3 pending** | GEPRC RAD arrived Dec 2, 2025 | Analog video confirmed |
 
 **Installation Plan**:
 
-- **Phase 1 (Critical)**: MOD-001 + MOD-002A (analog) → Get aircraft flying with minimal weight
-- **Phase 1B (Optional Upgrade)**: Choose digital path:
-  - MOD-002B (Walksnail) → If analog insufficient and prefer Goggles X
-  - MOD-002C (HDZero) → If analog insufficient and prefer low latency
+- **Phase 1 (Critical)**: MOD-001 (✅ installed) + MOD-002A (analog - GEPRC RAD) → Get aircraft flying
+- **Phase 1B (Backup Only)**: MOD-002B (Walksnail) → Only if analog performance insufficient
 - **Phase 2 (Optional Enhancements)**: MOD-003 + MOD-004 → Add LEDs and GPS-mate after baseline established
+
+**Decision (Dec 2, 2025)**: HDZero VTX (MOD-002C) reallocated to RD-54 "Zorro". RD-59 confirmed for analog to maximize flight time.
 
 ---
 
@@ -527,14 +527,15 @@ Installation of analog FPV system (SpeedyBee TX800 + CADDX Ratel 2) as initial v
 - Professional mapping platform will be separate future build (7" frame, ArduPilot)
 
 **Next Steps:**
-- Order GEPRC RAD Mini 1W ($74)
-- Remove failed TX800
-- Install GEPRC RAD (reuse existing Ratel 2 camera and wiring harness)
-- Bench test video system
-- Bind ELRS receiver
-- Complete MOD-002A
+- ✅ ~~Order GEPRC RAD Mini 1W ($74)~~ - ORDERED
+- ✅ ~~GEPRC RAD Mini 1W delivered~~ - ARRIVED Dec 2, 2025
+- [ ] Remove failed TX800
+- [ ] Install GEPRC RAD (reuse existing Ratel 2 camera and wiring harness)
+- [ ] Bench test video system
+- [ ] Bind ELRS receiver
+- [ ] Complete MOD-002A
 
-**Modification Status**: MOD-002A remains **IN PROGRESS** - awaiting GEPRC RAD delivery and installation
+**Modification Status**: MOD-002A remains **IN PROGRESS** - GEPRC RAD on hand, ready for installation
 
 ---
 
@@ -613,17 +614,18 @@ Optional upgrade to Walksnail Avatar HD Moonlight VTX Kit if analog performance 
 
 ---
 
-### MOD-002C: HDZero Freestyle V2 Upgrade (Optional Path 2)
+### MOD-002C: HDZero Freestyle V2 Upgrade (REALLOCATED TO RD-54)
 
-**Status**: 🟡 **PENDING** - Parts ordered, in transit (expected arrival ~Nov 9-15, 2025)
+**Status**: ➡️ **REALLOCATED** - VTX allocated to RD-54 "Zorro" (Dec 2, 2025)
 **Type**: Upgrade
-**Priority**: LOW (alternative to Walksnail if MOD-002A performance insufficient)
+**Priority**: N/A (no longer applicable to RD-59)
 **Parts Ordered**: November 2, 2025
-**Parts Expected**: Week of November 9, 2025
+**Parts Arrived**: December 2, 2025
+**Reallocation Decision**: December 2, 2025
 
 #### Description
 
-Alternative digital upgrade path using HDZero Freestyle V2 system. This is an alternative to MOD-002B (Walksnail), not in addition to it.
+~~Alternative digital upgrade path using HDZero Freestyle V2 system.~~ **REALLOCATED**: HDZero VTX allocated to RD-54 "Zorro" for HDZero ecosystem evaluation. RD-59 confirmed for analog (MOD-002A) to maximize flight time for cruiser role.
 
 #### When to Consider This Upgrade
 
@@ -687,9 +689,10 @@ Alternative digital upgrade path using HDZero Freestyle V2 system. This is an al
 
 #### Parts Status
 
-- [ ] HDZero Goggle 2 (red) with Echo Antenna Kit - $679.99 (ordered Nov 2, in transit)
-- [ ] HDZero Freestyle V2 Kit - $149.99 (ordered Nov 2, in transit)
-- Expected delivery: Week of November 9, 2025
+- [x] HDZero Goggle 2 (red) with Echo Antenna Kit - $679.99 (arrived Dec 2, 2025)
+- [x] HDZero Freestyle V2 Kit - $149.99 (arrived Dec 2, 2025) - **➡️ REALLOCATED TO RD-54**
+
+**Reallocation Note (Dec 2, 2025)**: HDZero VTX allocated to RD-54 "Zorro". Goggles remain available for use with RD-54 (HDZero) or other future HDZero aircraft.
 
 #### Installation Checklist (If Proceeding)
 
@@ -874,9 +877,9 @@ Installation of VIFLY GPS-mate external power module with built-in Finder 2 buzz
 
 ## Completed Modifications
 
-**No modifications completed yet.**
+### MOD-001: ELRS Receiver Installation - 🟢 COMPLETED Nov 13, 2025
 
-All components remain in as-purchased configuration from July 15, 2025.
+See MOD-001 section above for full installation details. Receiver installed and wired; awaiting binding and configuration.
 
 ---
 

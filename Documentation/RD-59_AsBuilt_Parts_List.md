@@ -4,7 +4,7 @@
 **Code Name**: Nazgul
 **Operator**: SpyD (Franco Nogarin)
 **Platform**: Nazgul DC5 ECO V1.1 - 5" Freestyle Quadcopter
-**Last Updated**: 2025-11-10
+**Last Updated**: 2025-12-02
 
 ---
 
@@ -102,16 +102,17 @@
 
 ### 🟡 ADDITIONAL COMPONENTS (On Hand)
 
-#### Analog Video Components (MOD-002A - For Initial Install)
+#### Analog Video Components (MOD-002A - CONFIRMED PATH)
 
 | Component | Specification | Status | Notes |
 |-----------|---------------|--------|-------|
-| **VTX** | SpeedyBee TX800 (5.8GHz, 25-800mW) | ✓ ON HAND (liberated from 3.5" build) | Test before install (possible shorting damage) |
-| **Camera** | CADDX Ratel 2 (red) | ✓ ON HAND (already owned) | Analog FPV camera |
+| **VTX** | GEPRC RAD Mini 1W (5.8GHz, 25mW-1W) | ✓ ON HAND (arrived Dec 2, 2025) | Replaces failed TX800 |
+| **VTX (Failed)** | SpeedyBee TX800 | ❌ FAILED (bench test Nov 14) | No video output, excessive heat - removed |
+| **Camera** | CADDX Ratel 2 (red) | ✓ INSTALLED | Analog FPV camera, mounted in custom TPU V3 bumper |
 
-**Purpose**: Initial FPV capability with minimal weight and maximum flight time
+**Purpose**: FPV capability with maximum flight time (5-7 min) - CONFIRMED as RD-59 video system
 
-**Critical**: Mount TX800 with proper standoffs to prevent shorting (previous installation issue)
+**Decision (Dec 2, 2025)**: Analog chosen over digital to maximize flight time for cruiser role
 
 #### Digital Video Components - Path 1: Walksnail (MOD-002B - Optional Upgrade)
 
@@ -122,22 +123,22 @@
 
 **Purpose**: HD video quality, onboard recording - upgrade if analog performance unsatisfactory
 
-#### Digital Video Components - Path 2: HDZero (MOD-002C - Alternative Upgrade)
+#### Digital Video Components - Path 2: HDZero (MOD-002C - REALLOCATED)
 
 | Component | Specification | Status | Notes |
 |-----------|---------------|--------|-------|
-| **Digital System** | HDZero Freestyle V2 Kit | 🟡 IN TRANSIT | Ordered Nov 2, 2025, expected ~Nov 9-15 |
-| **Goggles** | HDZero Goggle 2 (red) with Echo Antenna Kit | 🟡 IN TRANSIT | $679.99, ordered Nov 2, 2025 |
+| **Digital System** | HDZero Freestyle V2 Kit | ➡️ REALLOCATED TO RD-54 | Arrived Dec 2, 2025 - allocated to RD-54 Zorro |
+| **Goggles** | HDZero Goggle 2 (red) with Echo Antenna Kit | ✓ ARRIVED | $679.99, ordered Nov 2, 2025 |
 
-**Purpose**: Strategic evaluation of HDZero as daily driver goggles replacement for Goggles X across FPV fleet
+**Status Update (Dec 2, 2025)**: HDZero VTX reallocated to RD-54 "Zorro" for HDZero evaluation. RD-59 will use analog (MOD-002A) for maximum flight time.
 
 **Fleet Context**:
 - **DJI Mini Pro 4**: Complete setup (Motion, Goggles, screen remote) - cinematic/AP platform
-- **Walksnail Fleet**: Goggles X + 3 drones with Avatar VTX - current FPV standard
-  - RD-54 "Zorro" (Walksnail Avatar VTX installed)
+- **Walksnail Fleet**: Goggles X + drones with Avatar VTX
   - RD-55 "Flylens75" (Walksnail Avatar VTX installed)
-  - RD-59 "Nazgul" (Walksnail Avatar HD Moonlight available, not yet installed)
-- **HDZero Strategy**: Evaluate on RD-59 before potentially converting RD-54 & RD-55 to HDZero
+  - RD-59 "Nazgul" (Walksnail Avatar HD Moonlight available as backup)
+- **HDZero Fleet**: HDZero Goggle 2 + HDZero VTX
+  - RD-54 "Zorro" (HDZero Freestyle V2 - pending install)
 
 #### Arm LEDs (MOD-003)
 
@@ -252,40 +253,29 @@
 
 | Item | Status | Parts On Hand Since | Notes |
 |------|--------|-------------------|-------|
-| **MOD-001: ELRS Receiver** | ✓ Parts on hand | June 4, 2025 | HappyModel EP1 Dual RX |
-| **MOD-002A: Analog Video System** | ✓ Parts on hand | Already owned | TX800 + Ratel 2 - lighter, better flight time |
+| **MOD-001: ELRS Receiver** | 🟢 INSTALLED | June 4, 2025 | HappyModel EP1 Dual RX - installed Nov 13, needs binding |
+| **MOD-002A: Analog Video System** | ✓ Parts ready | Dec 2, 2025 | GEPRC RAD Mini 1W + Ratel 2 (installed) - CONFIRMED PATH |
 
 **Expected Performance (Phase 1)**:
 - Flight time: 5-7 minutes
-- Range: 2-4km at 800mW
+- Range: 2-4km at 1W
 - Weight penalty: +25g (minimal)
 
-### Phase 1B: Optional Digital Upgrade (Choose Path If Analog Insufficient)
+### Phase 1B: Optional Digital Upgrade (Walksnail Backup)
 
-**Objective**: Upgrade to digital if analog performance unsatisfactory - choose between Walksnail or HDZero
+**Objective**: Upgrade to Walksnail digital if analog performance unsatisfactory
 
 | Item | Status | Parts On Hand Since | Notes |
 |------|--------|-------------------|-------|
-| **MOD-002B: Walksnail Avatar HD** | ✓ Parts on hand | July 24, 2025 | Path 1: Use existing Goggles X investment |
-| **MOD-002C: HDZero Freestyle V2** | 🟡 In transit | Nov 2, 2025 (ordered) | Path 2: Lower latency, new ecosystem |
+| **MOD-002B: Walksnail Avatar HD** | ✓ Parts on hand | July 24, 2025 | Backup option: Use existing Goggles X investment |
+| **MOD-002C: HDZero Freestyle V2** | ➡️ REALLOCATED | Dec 2, 2025 | Allocated to RD-54 Zorro |
 
-**Digital Path Decision Factors**:
+**Decision (Dec 2, 2025)**: HDZero VTX allocated to RD-54 "Zorro" for HDZero ecosystem evaluation. RD-59 confirmed for analog (MOD-002A) with Walksnail as backup only.
 
-**Choose Walksnail (MOD-002B) if**:
-- Want to use existing Goggles X investment
-- Prefer maximum video quality over latency
-- Familiar with Walksnail ecosystem
-
-**Choose HDZero (MOD-002C) if**:
-- Want lowest possible latency (key advantage over Walksnail)
-- **Strategic goal**: Transitioning to HDZero as daily driver goggles for FPV fleet
-- Evaluating HDZero ecosystem for fleet-wide adoption
-- RD-59 serves as test platform before converting other aircraft
-
-**Trade-offs (Either Digital Path)**:
+**If Analog Insufficient - Walksnail (MOD-002B)**:
 - Flight time penalty: 3-5 min (vs 5-7 min analog)
-- Weight penalty: +45-70g heavier than analog
-- Benefits: HD video, onboard recording, slightly better range
+- Weight penalty: +45g heavier than analog
+- Benefits: HD video, onboard recording, uses Goggles X
 
 ### Phase 2: Optional Enhancements (Install After Flying)
 
@@ -320,13 +310,15 @@
 
 ## Modification History
 
-**No modifications completed yet.**
+**Completed Modifications**:
+- **MOD-001**: ELRS Receiver Installation - 🟢 INSTALLED Nov 13, 2025 (needs binding/config)
+
+**In Progress**:
+- **MOD-002A**: Analog Video System - Camera installed, GEPRC RAD ready to install (replaces failed TX800)
 
 **Pending Modifications**:
-- **MOD-001**: ELRS Receiver Installation (parts acquired June 4, 2025) ✓ On hand
-- **MOD-002A**: Analog Video System (TX800 + Ratel 2) ✓ On hand - Initial install
-- **MOD-002B**: Walksnail Avatar HD (parts delivered July 24, 2025) ✓ On hand - Optional Path 1
-- **MOD-002C**: HDZero Freestyle V2 (ordered Nov 2, 2025) 🟡 In transit - Optional Path 2
+- **MOD-002B**: Walksnail Avatar HD (parts delivered July 24, 2025) ✓ On hand - Backup if analog insufficient
+- **MOD-002C**: HDZero Freestyle V2 - ➡️ REALLOCATED to RD-54 Zorro (Dec 2, 2025)
 - **MOD-003**: RGB Arm LED Installation (parts acquired June 4, 2025) ✓ On hand
 - **MOD-004**: VIFLY GPS-mate Power Module Installation (parts delivered July 24, 2025) ✓ On hand
 

@@ -3,15 +3,15 @@
 **Drone Designator**: RD-59
 **Code Name**: Nazgul
 **Operator**: SpyD (Franco Nogarin)
-**Last Updated**: 2025-11-10
+**Last Updated**: 2025-12-02
 
 ---
 
 ## Timeline Overview
 
 **Project Start**: July 15, 2025 (Acquisition Date)
-**Current Phase**: Pre-Flight Preparation
-**Days Since Acquisition**: 118 days (as of Nov 10, 2025)
+**Current Phase**: Pre-Flight Preparation (Final Steps)
+**Days Since Acquisition**: 140 days (as of Dec 2, 2025)
 
 ---
 
@@ -146,10 +146,38 @@
   - Complete installation checklists prepared
   - HDZero option documented (MOD-002C)
 
+#### November 13, 2025 - MOD-001 & MOD-002A Installation ✓
+- **ELRS Receiver Installed (MOD-001)**:
+  - HappyModel EP1 Dual RX soldered to UART3
+  - Dual antennas routed (90° diversity achieved)
+  - Awaiting binding and configuration
+- **Analog Video Hardware Installed (MOD-002A)**:
+  - CADDX Ratel 2 camera mounted in custom TPU V3 bumper
+  - SpeedyBee TX800 VTX installed
+  - TrueRC CORE antenna mounted
+
+#### November 14, 2025 - TX800 Bench Test FAILED ✗
+- **Bench Test Results**:
+  - VTX communication working (IRC Tramp, Device ready: True)
+  - **NO VIDEO OUTPUT** - LED indicates no camera signal
+  - **EXCESSIVE HEAT** - VTX dangerously hot even in pit mode
+- **Decision Made**: Replace TX800 with GEPRC RAD Mini 1W ($74)
+- **Rationale**: Operator already happy with GEPRC RAD from other builds
+
+#### December 2, 2025 - Parts Arrived & Video Path Confirmed ✓
+- **Parts Delivered**:
+  - GEPRC RAD Mini 1W - ✓ ARRIVED (replaces failed TX800)
+  - HDZero Goggle 2 (red) with Echo Antenna Kit - ✓ ARRIVED
+  - HDZero Freestyle V2 Kit - ✓ ARRIVED
+- **Strategic Decision**: HDZero VTX reallocated to RD-54 "Zorro"
+  - RD-54 becomes HDZero evaluation platform
+  - RD-59 confirmed for analog (MOD-002A) - maximize flight time for cruiser role
+- **Video Path Confirmed**: Analog (GEPRC RAD + Ratel 2) with Walksnail as backup only
+
 **Current Blockers**:
-- ⏳ No receiver installed - Parts on hand, awaiting installation (MOD-001)
-- ⏳ No video system - Analog parts on hand, digital options available (MOD-002)
-- ⏳ Installation work not yet started - All tools and parts available
+- ⏳ GEPRC RAD not yet installed - Parts on hand, ready for installation
+- ⏳ ELRS receiver needs binding/configuration
+- ⏳ Bench test required after VTX swap
 
 ---
 
@@ -287,8 +315,8 @@
 | **Test Flights** | TBD | TBD | TBD | Pending |
 | **Operational** | TBD | Ongoing | Ongoing | Pending |
 
-**Days Since Acquisition**: 118 days (July 15 - Nov 10, 2025)
-**Days Parts On Hand**: 109 days (July 24 - Nov 10, 2025)
+**Days Since Acquisition**: 140 days (July 15 - Dec 2, 2025)
+**Days Parts On Hand**: 131 days (July 24 - Dec 2, 2025)
 
 ### Cost Tracking
 
@@ -302,8 +330,9 @@
 | **GPS-mate** | Price not recorded | July 17, 2025 | VIFLY GPS-mate w/ Finder 2 |
 | **SpeedyBee Stack** | Price not recorded | July 17, 2025 | F7 50A V3 Combo (future consideration) |
 | **HDZero Goggle 2** | $679.99 | Nov 2, 2025 | HDZero Goggle 2 (red) with Echo Antenna Kit |
-| **HDZero VTX** | $149.99 | Nov 2, 2025 | HDZero Freestyle V2 Kit |
-| **Total Recorded** | $1,103.10+ | | Plus unrecorded parts costs from June/July |
+| **HDZero VTX** | $149.99 | Nov 2, 2025 | HDZero Freestyle V2 Kit (➡️ reallocated to RD-54) |
+| **GEPRC RAD Mini 1W** | $74.00 | Nov 14, 2025 | Replacement for failed TX800 |
+| **Total Recorded** | $1,177.10+ | | Plus unrecorded parts costs from June/July |
 
 **Note**: Exact costs for parts ordered June 4 and July 17 not documented. Consider updating with actual costs if desired.
 
@@ -325,11 +354,12 @@
 - ✅ **July 24, 2025**: All ordered parts delivered - aircraft ready for installation
 - ✅ **November 2, 2025**: HDZero system ordered ($829.98 investment)
 - ✅ **November 10, 2025**: Documentation repository established
-- ⏳ **~Nov 9-15, 2025**: HDZero parts expected to arrive
-- ⏳ **TBD**: Receiver installed (MOD-001)
-- ⏳ **TBD**: Analog video system installed (MOD-002A)
+- ✅ **November 13, 2025**: ELRS receiver installed (MOD-001), analog video hardware installed
+- ✅ **November 14, 2025**: TX800 bench test FAILED - GEPRC RAD ordered as replacement
+- ✅ **December 2, 2025**: GEPRC RAD & HDZero arrived; HDZero reallocated to RD-54; analog path confirmed
+- ⏳ **TBD**: GEPRC RAD installed, video bench test passed
+- ⏳ **TBD**: ELRS receiver bound and configured
 - ⏳ **TBD**: First test flight with analog system
-- ⏳ **TBD**: Digital upgrade decision (Walksnail MOD-002B vs HDZero MOD-002C)
 - ⏳ **TBD**: Optional enhancements installed (MOD-003, MOD-004)
 - ⏳ **TBD**: Operational status achieved
 - ⏳ **TBD**: Decision on SpeedyBee stack upgrade (if needed)
