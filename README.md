@@ -13,12 +13,13 @@ This repository serves as the **authoritative source of truth** for RD-59 "Nazgu
 
 | Status | Value |
 |--------|-------|
-| **Airworthiness** | ❌ NOT AIRWORTHY (parts on hand, pending installation) |
-| **Parts Status** | All critical components acquired (July 24, 2025) |
+| **Airworthiness** | ❌ NOT AIRWORTHY (VTX swap in progress) |
+| **VTX Status** | TX800 removed (Dec 30, 2025) - failed bench test Nov 14. Harness + antenna still installed. |
+| **Next Step** | Install GEPRC RAD Mini 1W (on hand) |
 | **Acquisition Date** | July 15, 2025 |
 | **Test Flights** | 0 (not yet flown by current operator) |
 | **Incidents** | 0 |
-| **Modifications** | 0 completed, 5 pending |
+| **Modifications** | 1 completed (RX), 1 in progress (VTX swap), 2 pending |
 
 ---
 
@@ -76,17 +77,23 @@ Complete technical documentation is maintained in the `/Documentation/` director
 
 ## 🚀 Next Steps to Airworthiness
 
-**Installation Plan**: Install RX + Analog VTX → Get it flying → Evaluate → Upgrade if needed
+**Current State**: TX800 failed bench test (Nov 14) and removed (Dec 30). Camera, harness, and antenna remain installed. RAD Mini ready.
 
-### Phase 1: Critical (Install First - Analog for Maximum Flight Time)
+### Phase 1: Critical (VTX Swap)
 
-1. ✓ **Install Receiver** (MOD-001) - HappyModel ELRS EP1 Dual RX
-2. ✓ **Install Analog Video** (MOD-002A) - TX800 + Ratel 2 (lighter, 5-7 min flight time)
+1. ✓ **Install Receiver** (MOD-001) - HappyModel ELRS EP1 Dual RX - COMPLETE
+2. ⚠️ **VTX Swap** (MOD-002A) - TX800 FAILED → GEPRC RAD Mini 1W
+   - ✓ TX800 removed (Dec 30, 2025)
+   - ✓ Ratel 2 camera installed
+   - ✓ Harness + TrueRC antenna in place
+   - ⏳ Install RAD Mini (rewire power from 5V to VBAT)
+   - ⏳ Bench test video
+   - ⏳ Bind ELRS receiver
 3. **Test flights** - Establish baseline with analog system
 
 ### Phase 1B: Optional Digital Upgrade (If Analog Insufficient)
 
-- ✓ **Upgrade to Digital** (MOD-002B) - Walksnail Avatar HD (if needed)
+- **Walksnail Avatar HD** (MOD-002B) - on hand as backup if needed
 - Trade-off: Better video quality, but 40-50% flight time penalty
 
 ### Phase 2: Optional Enhancements (After Flying)
@@ -94,7 +101,7 @@ Complete technical documentation is maintained in the `/Documentation/` director
 1. *Optional*: Install RGB LEDs (MOD-003)
 2. *Optional*: Install GPS-mate (MOD-004)
 
-**Status**: All parts on hand. Starting with analog for best flight time, digital available if needed.
+**Status**: RAD Mini on hand. Swap requires power wire move (5V → VBAT) then bench test.
 
 See [Modifications Log](./Documentation/RD-59_Modifications_Log.md) for detailed installation checklists and analog vs digital comparison.
 
@@ -104,8 +111,9 @@ See [Modifications Log](./Documentation/RD-59_Modifications_Log.md) for detailed
 
 - **Source of Truth**: This repository contains verified technical specifications
 - **Partial Build**: Aircraft acquired without video system or receiver
-- **Untested**: All flight electronics are operational but untested by current operator
-- **No Flight History**: Not yet flown by current operator since acquisition
+- **RX Installed**: ELRS EP1 Dual RX installed Nov 13, 2025 - needs binding
+- **VTX Swap In Progress**: TX800 failed (Nov 14) and removed (Dec 30). RAD Mini ready to install.
+- **Untested**: Not yet flown by current operator since acquisition
 
 ---
 
